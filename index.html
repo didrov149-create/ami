@@ -4,222 +4,248 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Кино на двоих</title>
-<meta name="description" content="Один открывает фильм, второй смотрит у себя. Пауза, перемотка и чат — общие.">
-<meta name="theme-color" content="#161017">
+<meta name="description" content="Один открывает фильм у себя, второй смотрит по ссылке. Пауза, перемотка и чат общие.">
+<meta name="theme-color" content="#0f0f0f">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Кино на двоих">
 <meta property="og:title" content="Кино на двоих">
-<meta property="og:description" content="Вас зовут посмотреть фильм вместе. Скачивать ничего не нужно — просто откройте ссылку.">
+<meta property="og:description" content="Вас зовут посмотреть фильм вместе. Скачивать ничего не нужно, просто откройте ссылку.">
 <meta property="og:image" content="https://didrov149-create.github.io/ami/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Golos Text";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Yeseva One";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/yeseva-one-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Yeseva One";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/yeseva-one-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* Раскладка «экран и ряд»: на компьютере слева экран с пультом, справа чат.
-   Телефон вертикально — экран сверху, чат снизу; горизонтально — кинорежим: видео на весь экран, пульт и чат поверх.
-   Одна тёмная тема намеренно: это кинозал, светлый интерфейс слепил бы в темноте. */
+/* Ночной зал: фильм занимает почти всё, интерфейс вокруг — тихая тёмная рамка из нейтральных тонов.
+   Жёлтый — цвет субтитров и цвет другого зрителя: его имя, его сообщения на шкале и поверх кадра. */
 :root{
-  --bg:#161017;--panel:#1f1721;--panel-2:#2a1f2d;--line:#3a2c3e;--line-2:#4f3d55;
-  --fg:#f2eae4;--muted:#b7a5b1;--dim:#8d7a88;
-  --brass:#e4b66c;--brass-hi:#f2cb8b;--ink:#241707;
-  --rose:#f095ab;--ok:#8fd4a4;--warn:#f3a993;
-  --screen:#070407;--scrim:rgba(7,4,7,.82);--glow:rgba(228,182,108,.16);--toast:rgba(31,23,33,.93);
-  --shade:rgba(7,4,7,.94);--shade-2:rgba(7,4,7,.55);--glass:rgba(31,23,33,.88);
-  --me-b:#3b2b1b;--them-b:#2d2131;
-  --f-display:"Yeseva One","Playfair Display",Georgia,serif;
-  --f-ui:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ground:#0f0f0f; --surface:#171717; --raised:#212121; --hover:#2b2b2b; --line:#2a2a2a; --control:#474747;
+  --ink:#f2f2f2; --muted:#b4b4b4; --faint:#949494; --on-ink:#0f0f0f;
+  --sub:#ffd84a; --on-sub:#1d1700;
+  --ok:#3fc07a; --warn:#ff8f7a;
+  --screen:#000; --scrim:rgba(0,0,0,.74); --shade:rgba(0,0,0,.88); --shade-2:rgba(0,0,0,.5);
+  --font:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:6px; --r-panel:8px;
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--ground)}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--f-ui);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 14px/1.45 var(--font);-webkit-font-smoothing:antialiased}
 img{max-width:100%}
-button,input,textarea,select{font:inherit;color:inherit}
+::selection{background:var(--sub);color:var(--on-sub)}
+input,textarea{caret-color:var(--sub)}
+*{scrollbar-width:thin;scrollbar-color:var(--control) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--control);border:3px solid transparent;border-radius:10px;background-clip:content-box}
+button,input,textarea{font:inherit;color:inherit}
 button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-button:disabled{cursor:default;opacity:.38}
-:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+button:disabled{cursor:default;opacity:.4}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+input::placeholder,textarea::placeholder{color:var(--faint);opacity:1}
 
-.app{height:100%;min-height:560px;display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px;
-  padding-top:max(12px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px));
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--bg)}
+.app{height:100%;min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;
+  padding-top:max(10px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--ground)}
 
 /* шапка */
-.top{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;min-width:0}
-.brand{margin:0;font-family:var(--f-display);font-weight:400;font-size:23px;line-height:1.1;white-space:nowrap}
-.brand span{color:var(--brass)}
-.people{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 260px;min-width:0}
-.chip{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:100%;padding:4px 11px 4px 9px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--muted)}
-.chip .d{flex:none;width:8px;height:8px;border-radius:50%;background:var(--dim)}
+.top{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;min-width:0;min-height:30px}
+.brand{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.people{display:flex;flex-wrap:wrap;gap:4px 16px;flex:1 1 240px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;min-width:0;max-width:100%;font-size:13px;color:var(--faint)}
+.chip .d{flex:none;width:6px;height:6px;border-radius:50%;background:var(--control)}
 .chip.on .d{background:var(--ok)}
-.chip .nm{min-width:2.5ch;color:var(--rose);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:16ch}
-.chip.me .nm{color:var(--brass)}
+.chip .nm{min-width:2.5ch;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sub);font-weight:500}
+.chip.me .nm{color:var(--ink)}
 .chip .st{flex:none;white-space:nowrap}
-.conn{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--dim);white-space:nowrap}
-.conn i{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.stats{font-size:12px;color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums}
+.stats.warn{color:var(--warn)}
+.conn{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--faint);white-space:nowrap}
+.conn i{width:6px;height:6px;border-radius:50%;background:var(--control)}
 .conn.live i{background:var(--ok)}
 .conn.bad i{background:var(--warn)}
-.stats{font-family:var(--f-mono);font-size:12px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
-.stats.warn{color:var(--warn)}
 
 /* сетка */
-.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px;min-height:0}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:10px;min-height:0}
 .app.nochat .main{grid-template-columns:minmax(0,1fr)}
 
 /* экран */
-.stage{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.stage{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;border-radius:var(--r-panel);overflow:hidden;background:var(--surface)}
 .screen{position:relative;min-height:240px;overflow:hidden;background:var(--screen)}
 .screen.ready video{cursor:pointer}
 .screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--screen);touch-action:manipulation}
-.screen video::cue{font-family:"Golos Text",-apple-system,sans-serif;line-height:1.3;color:#fff;background:rgba(0,0,0,.62)}
-.screen.drop::after{content:"";position:absolute;inset:10px;z-index:9;border:2px dashed var(--brass);border-radius:12px;background:var(--glow);pointer-events:none}
-.subs{position:absolute;left:50%;bottom:7%;z-index:2;transform:translateX(-50%);max-width:86%;padding:3px 12px 5px;border-radius:6px;background:rgba(0,0,0,.66);color:#fff;font:500 clamp(15px,2.2vw,26px)/1.3 var(--f-ui);text-align:center;white-space:pre-line;pointer-events:none}
+.screen video::cue{font-family:"Onest",-apple-system,sans-serif;line-height:1.3;color:#fff;background:rgba(0,0,0,.6)}
+.screen.drop::after{content:"";position:absolute;inset:12px;z-index:9;border:1px dashed var(--sub);border-radius:var(--r-panel);pointer-events:none}
+.subs{position:absolute;left:50%;bottom:7%;z-index:2;transform:translateX(-50%);max-width:86%;padding:2px 10px 4px;border-radius:4px;background:rgba(0,0,0,.62);color:#fff;font:500 clamp(15px,2.2vw,26px)/1.3 var(--font);text-align:center;white-space:pre-line;pointer-events:none}
+.chatsubs{position:absolute;top:6%;left:50%;z-index:4;transform:translateX(-50%);width:min(88%,760px);display:grid;justify-items:center;gap:4px;pointer-events:none}
+.cs{max-width:100%;color:var(--sub);font:500 clamp(16px,2vw,24px)/1.3 var(--font);text-align:center;overflow-wrap:anywhere;text-shadow:0 0 2px #000,0 1px 2px #000,0 0 10px rgba(0,0,0,.7);animation:csin .2s cubic-bezier(.16,1,.3,1)}
+.cs b{font-weight:600}
+@keyframes csin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
-.ov{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;overflow:auto;padding:28px 20px;background:radial-gradient(120% 85% at 50% -15%,var(--glow),transparent 58%),var(--screen)}
+.ov{position:absolute;inset:0;z-index:3;display:flex;overflow:auto;padding:28px 24px;background:var(--screen)}
 .ov.scrim{background:var(--scrim)}
-.ov-in{margin:auto;width:100%;max-width:580px;display:grid;justify-items:center;gap:14px;text-align:center}
-.eyebrow{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
-.eyebrow.warn{color:var(--warn)}
-.ov h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.6vw,40px);line-height:1.12;text-wrap:balance}
-.ov p{margin:0;max-width:50ch;color:var(--muted);text-wrap:pretty}
-.ov .hint{font-size:13px;color:var(--dim)}
-.ov .note{font-size:12.5px;color:var(--dim);max-width:52ch}
-.ov .warnbox{max-width:46ch;font-size:13px;color:var(--warn)}
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border:0;border-radius:999px;background:var(--brass);color:var(--ink);font-weight:600;font-size:15px}
-.cta.sm{padding:9px 16px;font-size:14px;white-space:nowrap}
-.ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border:1px solid var(--line-2);border-radius:999px;background:transparent;color:var(--fg);font-weight:500;font-size:14px;white-space:nowrap}
-.link{border:0;background:none;padding:4px 6px;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px}
-.btnline{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.linkbox{display:flex;gap:8px;width:100%;max-width:520px;min-width:0}
-.linkbox input{flex:1;min-width:0;padding:9px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--bg);font-family:var(--f-mono);font-size:13px;color:var(--fg)}
-.field{display:grid;gap:6px;width:100%;max-width:320px;text-align:left;font-size:12.5px;color:var(--dim)}
-.field input{padding:11px 14px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg);font-size:16px;color:var(--fg)}
-.code{width:100%;max-width:520px;min-height:96px;padding:10px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--bg);font-family:var(--f-mono);font-size:12px;line-height:1.4;color:var(--fg);resize:none;word-break:break-all}
-.statusline{display:inline-flex;align-items:center;gap:8px;max-width:100%;font-size:13.5px;color:var(--muted);text-align:left}
-.statusline i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--brass);animation:pulse 1.6s ease-in-out infinite}
+.ov.slot::before{content:"";position:absolute;inset:12px;border:1px dashed #3a3a3a;border-radius:var(--r-panel);pointer-events:none}
+.screen.drop .ov.slot::before{border-color:var(--sub)}
+.ov-in{position:relative;margin:auto;width:100%;max-width:440px;display:grid;justify-items:start;gap:12px}
+.ov h2{margin:0;font-size:24px;line-height:1.2;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
+.ov p{margin:0;max-width:52ch;color:var(--muted);font-size:15px;line-height:1.5;text-wrap:pretty}
+.ov .hint,.ov .note{font-size:13px;color:var(--faint)}
+.ov .status{margin-top:-4px;font-size:13px;font-weight:500;color:var(--muted)}
+.ov .status.warn{color:var(--warn)}
+.ov .warnbox{font-size:13px;color:var(--warn)}
+.btnline{display:flex;flex-wrap:wrap;gap:8px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border:0;border-radius:var(--r);background:var(--ink);color:var(--on-ink);font-weight:600;font-size:14px;white-space:nowrap}
+.btn.sm{height:34px;padding:0 14px;font-size:13px}
+.btn2{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border:0;border-radius:var(--r);background:var(--raised);color:var(--ink);font-weight:500;font-size:13px;white-space:nowrap}
+.link{justify-self:start;border:0;background:none;padding:0;color:var(--muted);font-size:13px;text-align:left;text-decoration:underline;text-decoration-color:var(--control);text-underline-offset:3px}
+input:focus-visible,textarea:focus-visible{outline:none;border-color:var(--muted)}
+.linkbox{display:flex;gap:6px;width:100%;min-width:0}
+.linkbox input{flex:1;min-width:0;height:34px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);color:var(--ink);font-size:13px}
+.field{display:grid;gap:6px;width:100%;font-size:13px;color:var(--faint)}
+.field input{height:40px;padding:0 12px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:16px}
+.code{width:100%;min-height:96px;padding:10px 12px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);color:var(--ink);font:12px/1.4 var(--mono);resize:none;word-break:break-all}
+.techline,.ov p.techline,.room p.techline{margin:0;max-width:56ch;color:var(--faint);font:11.5px/1.45 var(--mono);overflow-wrap:anywhere}
+.err{margin:0;font-size:13px;color:var(--warn)}
+.filmline{max-width:100%;color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.filmline b{font-weight:500;color:var(--ink)}
+
+.statusline{display:flex;align-items:flex-start;gap:8px;max-width:100%;font-size:13px;color:var(--muted)}
+.statusline i{flex:none;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--faint);animation:pulse 1.6s ease-in-out infinite}
 .statusline.ok i{background:var(--ok);animation:none}
 .statusline.bad{color:var(--warn)}
 .statusline.bad i{background:var(--warn);animation:none}
-@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-.filmline{max-width:100%;padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.filmline b{font-weight:500;color:var(--fg)}
-.steps{list-style:none;margin:8px 0 0;padding:0;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;text-align:left}
-.steps li{padding-top:10px;border-top:1px solid var(--line-2);font-size:13px;line-height:1.4;color:var(--muted)}
-.steps b{display:block;margin-bottom:3px;font-family:var(--f-mono);font-weight:500;color:var(--brass)}
-.progress{list-style:none;margin:0;padding:0;display:grid;gap:9px;text-align:left;font-size:14px;color:var(--dim)}
+.statusline span{text-wrap:pretty}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+.progress{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--faint)}
 .progress li{display:flex;align-items:center;gap:10px}
-.progress li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line-2)}
-.progress li.now{color:var(--fg)}
-.progress li.now::before{border-color:var(--brass);border-top-color:transparent;animation:spin 1s linear infinite}
+.progress li::before{content:"";flex:none;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--control)}
+.progress li.now{color:var(--ink)}
+.progress li.now::before{border-color:var(--ink);border-top-color:transparent;animation:spin .9s linear infinite}
 .progress li.done{color:var(--muted)}
-.progress li.done::before{border:0;background:var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.6 6.3l2.2 2.2 4.6-4.9' fill='none' stroke='%23241707' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.progress li.done::before{border:0;background:var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.6 6.3l2.2 2.2 4.6-4.9' fill='none' stroke='%230f0f0f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/11px no-repeat}
 .progress li.fail{color:var(--warn)}
-.progress li.fail::before{border:0;background:var(--warn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 3v3.6M6 8.7v.1' fill='none' stroke='%23241707' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.progress li.fail::before{border:0;background:var(--warn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 3v3.6M6 8.7v.1' fill='none' stroke='%230f0f0f' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E") center/11px no-repeat}
 @keyframes spin{to{transform:rotate(360deg)}}
-.manual{display:grid;justify-items:center;gap:12px;width:100%;padding-top:6px;border-top:1px solid var(--line)}
-.mlist{margin:0;padding:0;list-style:none;counter-reset:m;display:grid;gap:14px;width:100%;max-width:520px;text-align:left;font-size:13.5px;color:var(--muted)}
-.mlist li{display:grid;gap:7px;counter-increment:m}
-.mlist li>span::before{content:counter(m) ". ";font-family:var(--f-mono);color:var(--brass)}
-.err{font-size:13px;color:var(--warn)}
-.techline{margin:0;max-width:56ch;font-family:var(--f-mono);font-size:11.5px;line-height:1.45;color:var(--dim);overflow-wrap:anywhere}
-.statusline.bad span{text-wrap:pretty}
 
 .float{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.fl{position:absolute;bottom:10%;font-size:34px;line-height:1;animation:rise 2.6s ease-out forwards}
-@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.6)}12%{opacity:1;transform:translateY(-12px) scale(1)}100%{opacity:0;transform:translateY(-230px) scale(1.06)}}
-.toasts{position:absolute;top:12px;left:50%;z-index:6;transform:translateX(-50%);width:min(92%,560px);display:grid;justify-items:center;gap:6px;pointer-events:none}
-.toast{max-width:100%;padding:7px 14px;border:1px solid var(--line-2);border-radius:16px;background:var(--toast);color:var(--fg);font-size:13px;text-align:center;overflow-wrap:anywhere}
-.wait{position:absolute;left:12px;bottom:12px;z-index:4;max-width:calc(100% - 24px);padding:6px 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--toast);font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fl{position:absolute;bottom:12%;font-size:34px;line-height:1;animation:rise 2.6s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.7)}10%{opacity:1;transform:translateY(-10px) scale(1)}100%{opacity:0;transform:translateY(-220px) scale(1)}}
+.toasts{position:absolute;right:12px;bottom:12px;z-index:6;width:min(80%,420px);display:grid;justify-items:end;gap:6px;pointer-events:none}
+.toast{max-width:100%;padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--ink);font-size:13px;overflow-wrap:anywhere;animation:csin .2s cubic-bezier(.16,1,.3,1)}
+.wait{position:absolute;left:12px;bottom:12px;z-index:4;max-width:calc(100% - 24px);padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* пульт */
-.controls{display:grid;gap:4px;padding:8px 12px 10px;border-top:1px solid var(--line);background:var(--panel)}
-.seekrow{display:flex;align-items:center;gap:10px;min-width:0}
-.tc{font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums;min-width:5.5ch}
-#tcDur{color:var(--dim);text-align:right}
-.seekwrap{position:relative;flex:1;min-width:0;display:flex;align-items:center;height:24px}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;margin:0;background:transparent;cursor:pointer;touch-action:manipulation;--pct:0%}
+.controls{display:grid;gap:2px;padding:4px 12px 8px;background:var(--surface)}
+.seekrow{display:flex;align-items:center;gap:12px;min-width:0}
+.tc{min-width:5ch;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+#tcDur{color:var(--faint);text-align:right}
+.seekwrap{position:relative;flex:1;min-width:0;display:flex;align-items:center;height:30px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;margin:0;background:transparent;cursor:pointer;touch-action:manipulation;--pct:0%}
 input[type=range]:disabled{cursor:default}
-input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--brass) 0 var(--pct),var(--line-2) var(--pct) 100%)}
-input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--line-2)}
-input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--brass)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-5px;border:0;border-radius:50%;background:var(--brass-hi);box-shadow:0 0 0 3px var(--panel)}
-input[type=range]::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--brass-hi)}
-input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
-.btnrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 14px}
-.grp{display:flex;align-items:center;gap:4px;min-width:0}
-.ibtn{position:relative;display:inline-grid;place-items:center;min-width:38px;height:38px;padding:0 8px;border:0;border-radius:10px;background:transparent;color:var(--muted)}
-.ibtn svg{display:block;width:21px;height:21px}
-.ibtn[aria-pressed="true"]{color:var(--brass)}
-.ibtn.txt{font-family:var(--f-mono);font-size:13px}
-.play{display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:var(--brass);color:var(--ink)}
-.play svg{display:block;width:22px;height:22px}
-.rx{width:38px;height:38px;border:0;border-radius:50%;background:transparent;font-size:20px;line-height:1;transition:transform .12s ease}
-.vol{width:86px}
-.badge{position:absolute;top:2px;right:0;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--rose);color:var(--ink);font:600 11px/17px var(--f-ui);text-align:center}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--ink) 0 var(--pct),#3a3a3a var(--pct) 100%)}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:#3a3a3a}
+input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;margin-top:-4px;border:0;border-radius:50%;background:var(--ink)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radius:50%;background:var(--ink)}
+input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
+.marks{position:absolute;left:6px;right:6px;top:3px;height:8px;pointer-events:none}
+.mark{position:absolute;top:0;width:2px;height:7px;margin-left:-1px;border-radius:1px;background:var(--faint)}
+.mark.them{background:var(--sub)}
+.btnrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}
+.grp{position:relative;display:flex;align-items:center;gap:2px;min-width:0}
+.grp > .grp{flex:none}
+.ibtn{position:relative;display:inline-grid;place-items:center;min-width:36px;height:36px;padding:0 6px;border:0;border-radius:var(--r);background:transparent;color:var(--muted)}
+.ibtn svg{display:block;width:20px;height:20px}
+.ibtn[aria-pressed="true"]{color:var(--ink)}
+.ibtn.txt{font-size:12px;font-weight:600}
+.play{display:grid;place-items:center;width:40px;height:40px;margin:0 4px;border:0;border-radius:50%;background:var(--ink);color:var(--on-ink)}
+.play svg{display:block;width:20px;height:20px}
+.vol{width:84px}
+.badge{position:absolute;top:2px;right:1px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--sub);color:var(--on-sub);font:600 10px/16px var(--font);text-align:center}
+.tray{position:absolute;bottom:calc(100% + 8px);left:50%;z-index:8;display:flex;gap:2px;padding:4px;border-radius:var(--r-panel);background:var(--raised);box-shadow:0 10px 30px rgba(0,0,0,.5);transform:translateX(-50%)}
+.rx{width:40px;height:40px;border:0;border-radius:var(--r);background:transparent;font-size:22px;line-height:1}
 .app:not(.host) .host-only{display:none}
 
 /* чат */
-.chat{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto;min-width:0;min-height:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
-.chat-head{display:flex;align-items:center;gap:10px;padding:10px 12px 10px 14px;border-bottom:1px solid var(--line);min-width:0}
-.chat-head h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:19px}
-.typing{flex:1;min-width:0;font-size:12px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nick{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--dim)}
-.nick input{width:9.5em;padding:4px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-size:13px}
-.log{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.msg{max-width:88%;align-self:flex-start;display:grid;justify-items:start;gap:3px;min-width:0}
+.chat{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto auto;min-width:0;min-height:0;border-radius:var(--r-panel);overflow:hidden;background:var(--surface)}
+.chat-head{grid-row:1;display:flex;align-items:center;gap:10px;min-width:0;padding:10px 12px;border-bottom:1px solid var(--line)}
+.chat > .room{grid-row:2}
+.chat > .log{grid-row:3}
+.chat > .cnote{grid-row:4}
+.chat > .composer{grid-row:5}
+.chat-head h2{margin:0;font-size:15px;font-weight:600}
+.typing{flex:1;min-width:0;overflow:hidden;color:var(--faint);font-size:12px;white-space:nowrap;text-overflow:ellipsis}
+.nick{display:flex;align-items:center;gap:6px;color:var(--faint);font-size:12px}
+.nick input{width:9em;height:28px;padding:0 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground);font-size:13px}
+
+.room{display:grid;gap:10px;padding:14px 14px 16px;border-bottom:1px solid var(--line);background:#1c1c1c}
+.room h3{margin:0;font-size:15px;font-weight:600}
+.room p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+.room .note{color:var(--faint);font-size:12px}
+.room .row{display:flex;align-items:center;gap:8px;min-width:0}
+.room .row label{flex:none;color:var(--faint);font-size:12px}
+.room .row input{flex:1;min-width:0;height:32px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:14px}
+.room-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.manual{display:grid;gap:10px}
+.mlist{margin:0;padding:0 0 0 18px;display:grid;gap:12px;color:var(--muted);font-size:13px}
+.mlist li{padding-left:2px}
+.mlist li > div{margin-top:6px}
+
+.log{display:flex;flex-direction:column;gap:6px;overflow-y:auto;padding:12px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.msg{max-width:88%;align-self:flex-start;display:grid;justify-items:start;gap:2px;min-width:0}
 .msg.me{align-self:flex-end;justify-items:end}
-.msg.cont{margin-top:-4px}
-.meta{display:flex;align-items:baseline;gap:8px;font-size:12px;color:var(--dim)}
-.meta .who{font-weight:600;color:var(--rose)}
-.msg.me .meta .who{color:var(--brass)}
+.msg.cont{margin-top:-2px}
+.meta{display:flex;align-items:baseline;gap:8px;color:var(--faint);font-size:12px}
+.meta .who{font-weight:600;color:var(--sub)}
+.msg.me .meta .who{color:var(--muted)}
 .msg.cont .who{display:none}
-.meta .tc{min-width:0;font-size:11.5px;color:var(--dim)}
-.body{max-width:100%;padding:7px 11px;border-radius:13px 13px 13px 4px;background:var(--them-b);white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.4}
-.msg.me .body{border-radius:13px 13px 4px 13px;background:var(--me-b)}
-.sys{align-self:center;font-size:12px;color:var(--dim);text-align:center}
-.chat-empty{margin:auto;max-width:30ch;display:grid;gap:4px;text-align:center;font-size:13px;color:var(--dim)}
-.chat-empty-h{font-family:var(--f-display);font-size:18px;color:var(--muted)}
-.cnote{padding:8px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim)}
-.composer{display:flex;align-items:flex-end;gap:8px;min-width:0;padding:10px;border-top:1px solid var(--line)}
-.composer textarea{flex:1;min-width:0;max-height:120px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);line-height:1.4;resize:none}
-.send{height:38px;padding:0 14px;border:0;border-radius:10px;background:var(--brass);color:var(--ink);font-weight:600}
+.meta .tc{min-width:0;font-size:12px;color:var(--faint)}
+.body{max-width:100%;padding:6px 10px;border-radius:var(--r);background:var(--raised);font-size:15px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.me .body{background:#2c2c2c}
+.sys{align-self:flex-start;color:var(--faint);font-size:12px}
+.chat-empty{display:grid;gap:4px;max-width:34ch;color:var(--faint);font-size:13px;line-height:1.45}
+.chat-empty-h{color:var(--muted);font-size:14px;font-weight:500}
+.chat-empty b{color:var(--sub);font-weight:500}
+.cnote{padding:8px 12px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.composer{display:flex;align-items:flex-end;gap:6px;min-width:0;padding:8px;border-top:1px solid var(--line)}
+.composer textarea{flex:1;min-width:0;min-height:36px;max-height:120px;padding:7px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground);font-size:15px;line-height:1.35;resize:none}
+.send{height:36px;padding:0 12px;border:0;border-radius:var(--r);background:var(--ink);color:var(--on-ink);font-size:13px;font-weight:600}
 
 @media (hover:hover){
-  .cta:hover{background:var(--brass-hi)}
-  .ghost:hover{border-color:var(--brass);color:var(--brass-hi)}
-  .link:hover{color:var(--fg)}
-  .ibtn:hover:not(:disabled){background:var(--panel-2);color:var(--fg)}
-  .play:hover:not(:disabled){background:var(--brass-hi)}
-  .rx:hover:not(:disabled){transform:scale(1.18);background:var(--panel-2)}
-  .send:hover:not(:disabled){background:var(--brass-hi)}
+  .btn:hover{background:#fff}
+  .btn2:hover{background:var(--hover)}
+  .link:hover{color:var(--ink);text-decoration-color:var(--muted)}
+  .ibtn:hover:not(:disabled){background:var(--raised);color:var(--ink)}
+  .play:hover:not(:disabled){background:#fff}
+  .rx:hover{background:var(--hover)}
+  .send:hover:not(:disabled){background:#fff}
 }
-/* сенсорные экраны: крупнее ползунки и кнопки, поля в 16px, чтобы айфон не увеличивал страницу */
+.btn,.btn2,.ibtn,.play,.send,.rx{transition:background-color .15s ease-out,color .15s ease-out}
+
+/* сенсорные экраны: крупнее цели, поля в 16px, чтобы айфон не увеличивал страницу */
 @media (pointer:coarse){
   .vol{display:none}
-  .composer textarea,.nick input,.linkbox input{font-size:16px}
-  .seekwrap,input[type=range]{height:34px}
-  input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px}
-  input[type=range]::-webkit-slider-thumb{width:22px;height:22px;margin-top:-8px}
-  input[type=range]::-moz-range-thumb{width:22px;height:22px}
+  .composer textarea,.nick input,.linkbox input,.room .row input{font-size:16px}
+  .seekwrap,input[type=range]{height:36px}
+  input[type=range]::-webkit-slider-runnable-track{height:5px}
+  input[type=range]::-webkit-slider-thumb{width:20px;height:20px;margin-top:-7.5px}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px}
+  .marks{left:10px;right:10px;top:5px}
   .ibtn{min-width:42px;height:42px}
-  .rx{width:42px;height:42px;font-size:22px}
+  .rx{width:44px;height:44px}
 }
 
 /* узкое окно: чат под экраном */
@@ -229,48 +255,45 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   .main{grid-template-columns:minmax(0,1fr)}
   .screen{min-height:0;aspect-ratio:16/9;max-width:100%}
   .screen.has-ov{aspect-ratio:auto}
-  .screen.has-ov .ov{position:relative;inset:auto;min-height:240px}
-  .chat{height:min(72vh,600px);min-height:360px}
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .brand{font-size:20px}
+  .screen.has-ov .ov{position:relative;inset:auto;min-height:260px}
+  .chat{height:min(72vh,620px);min-height:380px}
   .stats{display:none}
 }
 @media (max-width:600px){html,body{height:100%}}
 
 /* телефон вертикально: экран сверху, чат занимает остаток */
-.app.phone{display:flex;flex-direction:column;height:100%;min-height:0;gap:8px;padding-top:max(8px,env(safe-area-inset-top,0px));padding-bottom:max(8px,env(safe-area-inset-bottom,0px));overflow-y:auto}
-.app.phone .top{flex-wrap:nowrap;gap:10px}
-.app.phone .brand{font-size:19px}
+.app.phone{display:flex;flex-direction:column;height:100%;min-height:0;gap:8px;overflow-y:auto;padding-top:max(8px,env(safe-area-inset-top,0px));padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
+.app.phone .top{flex-wrap:nowrap;gap:12px}
 .app.phone .people{flex:1 1 auto;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
 .app.phone .people::-webkit-scrollbar{display:none}
 .app.phone .chip{flex:none;max-width:none}
-.app.phone .main{flex:1 0 auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(220px,1fr);gap:8px}
-.app.phone .stage{grid-template-rows:auto auto;border-radius:12px}
+.app.phone .main{flex:1 0 auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(240px,1fr);gap:8px}
+.app.phone .stage{grid-template-rows:auto auto}
 .app.phone .screen{min-height:0;aspect-ratio:16/9}
 .app.phone .screen.has-ov{aspect-ratio:auto}
-.app.phone .screen.has-ov .ov{position:relative;inset:auto;min-height:0;padding:22px 16px}
-.app.phone .steps{display:none}
+.app.phone .screen.has-ov .ov{position:relative;inset:auto;min-height:0;padding:28px 20px}
 .app.phone .chat{height:auto;min-height:0}
+.app.phone .log{min-height:160px}
 .app.phone #btnChat{display:none}
-.app.phone #reacts{order:3;flex:1 1 100%;justify-content:center}
 
 /* кинорежим: телефон горизонтально или «на всё окно» */
 .app.cinema{position:fixed;inset:0;z-index:20;display:block;height:auto;min-height:0;padding:0;overflow:hidden;background:var(--screen)}
 .app.cinema .top{display:none}
 .app.cinema .main{position:absolute;inset:0;display:block}
-.app.cinema .stage{position:absolute;inset:0;display:block;border:0;border-radius:0;background:var(--screen)}
+.app.cinema .stage{position:absolute;inset:0;display:block;border-radius:0;background:var(--screen)}
 .app.cinema .screen{position:absolute;inset:0;min-height:0;aspect-ratio:auto}
 .app.cinema .screen.has-ov .ov{position:absolute;inset:0;padding:calc(20px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
-.app.cinema .steps{display:none}
-.app.cinema .controls{position:absolute;left:0;right:0;bottom:0;z-index:7;border:0;background:linear-gradient(to top,var(--shade),var(--shade-2) 62%,transparent);padding:36px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transition:opacity .25s ease}
+.app.cinema .controls{position:absolute;left:0;right:0;bottom:0;z-index:7;background:linear-gradient(to top,var(--shade),var(--shade-2) 60%,transparent);padding:34px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transition:opacity .2s ease-out}
 .app.cinema .screen.has-ov + .controls{display:none}
 .app.cinema.idle .controls{opacity:0;pointer-events:none}
 .app.cinema.idle .screen{cursor:none}
-.app.cinema .chat{position:absolute;z-index:8;top:calc(10px + env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px));bottom:calc(118px + env(safe-area-inset-bottom,0px));width:min(360px,46vw);height:auto;min-height:0;border-color:var(--line-2);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.app.cinema .chat{position:absolute;z-index:8;top:calc(10px + env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px));bottom:calc(112px + env(safe-area-inset-bottom,0px));width:min(360px,46vw);height:auto;min-height:0;box-shadow:0 12px 40px rgba(0,0,0,.55)}
 .app.cinema.idle .chat,.app.cinema.typing .chat{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 .app.cinema.typing .controls{display:none}
 .app.cinema .wait{top:calc(12px + env(safe-area-inset-top,0px));bottom:auto;left:max(12px,env(safe-area-inset-left,0px))}
-.app.cinema .toasts{top:calc(12px + env(safe-area-inset-top,0px))}
+.app.cinema .toasts{bottom:calc(116px + env(safe-area-inset-bottom,0px));right:max(12px,env(safe-area-inset-right,0px))}
+.app.cinema.idle .toasts{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.app.cinema .chatsubs{top:calc(6% + env(safe-area-inset-top,0px))}
 .app.landcinema #btnFull{display:none}
 
 /* настоящий полный экран на компьютере */
@@ -284,17 +307,16 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
 @media (prefers-reduced-motion:reduce){
   .fl{animation:fadeout 2s ease-out forwards}
   @keyframes fadeout{0%{opacity:1}100%{opacity:0}}
-  .rx{transition:none}
-  .rx:hover:not(:disabled){transform:none}
-  .app.cinema .controls{transition:none}
+  .cs,.toast{animation:none}
   .statusline i,.progress li.now::before{animation:none}
+  .app.cinema .controls,.btn,.btn2,.ibtn,.play,.send,.rx{transition:none}
 }
 </style>
 </head>
 <body>
 <div class="app" id="app">
   <header class="top">
-    <h1 class="brand">Кино <span>на двоих</span></h1>
+    <h1 class="brand">Кино на двоих</h1>
     <div class="people" id="people" aria-label="Кто в зале"></div>
     <div class="stats" id="stats" hidden></div>
     <div class="conn" id="conn" hidden><i></i><span id="connText"></span></div>
@@ -305,105 +327,71 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       <div class="screen has-ov" id="screen">
         <video id="video" playsinline webkit-playsinline preload="metadata"></video>
         <div class="subs" id="subs" hidden></div>
+        <div class="chatsubs" id="chatSubs" aria-hidden="true"></div>
         <div class="float" id="float" aria-hidden="true"></div>
         <div class="wait" id="wait" hidden></div>
         <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
 
-        <div class="ov" id="ovLanding">
+        <div class="ov slot" id="ovLanding">
           <div class="ov-in">
-            <div class="eyebrow" id="landEyebrow">Совместный просмотр</div>
-            <h2 id="landTitle">Откройте фильм — второй посмотрит его у себя</h2>
-            <p id="landText">Файл остаётся у вас и никуда не загружается. Картинка и звук идут второму зрителю напрямую через интернет, а ставить на паузу и перематывать могут оба.</p>
-            <button class="cta" id="btnOpen" type="button">Открыть фильм…</button>
-            <div class="hint" id="hintDesk">или перетащите файл сюда · лучше всего работает в Chrome</div>
+            <span id="landEyebrow" hidden></span>
+            <h2 id="landTitle">Откройте фильм</h2>
+            <p id="landText">Файл остаётся у вас. Картинка и звук идут второму зрителю прямо с вашего компьютера, а ставить на паузу и перематывать могут оба.</p>
+            <button class="btn" id="btnOpen" type="button">Выбрать файл</button>
+            <div class="hint" id="hintDesk">Или перетащите его в это окно. Лучше всего работает в Chrome.</div>
             <div class="hint" id="hintIos" hidden>Фильм выбирайте через «Обзор» в «Файлах». Вести показ удобнее с компьютера, а смотреть можно и с айфона.</div>
-            <ol class="steps">
-              <li><b>1</b>Откройте фильм на своём компьютере</li>
-              <li><b>2</b>Отправьте второму ссылку на зал</li>
-              <li><b>3</b>Смотрите вместе: пауза, перемотка и чат — у обоих</li>
-            </ol>
-            <p class="note">Если вам прислали ссылку, просто откройте её — ничего скачивать не нужно.</p>
-          </div>
-        </div>
-
-        <div class="ov" id="ovInvite" hidden>
-          <div class="ov-in">
-            <div class="eyebrow">Зал открыт</div>
-            <h2>Позовите второго</h2>
-            <p>Отправьте ссылку, например в Telegram. Когда второй её откроет, фильм появится у него.</p>
-            <div class="linkbox"><input id="inviteLink" readonly aria-label="Ссылка на зал"><button class="cta sm" id="btnCopyLink" type="button">Скопировать</button></div>
-            <div class="btnline"><button class="ghost" id="btnShareLink" type="button" hidden>Поделиться…</button></div>
-            <label class="field" for="hostName"><span>Ваше имя — его увидит второй</span><input id="hostName" maxlength="32" autocomplete="nickname" placeholder="Имя"></label>
-            <div class="statusline" id="inviteStatus"><i></i><span id="inviteStatusText">Ждём подключения…</span></div>
-            <p class="techline" id="inviteTech" hidden></p>
-            <p class="note">Во время фильма не закрывайте и не сворачивайте эту вкладку: видео идёт отсюда.</p>
-            <div class="manual" id="manualBox">
-              <button class="link" id="btnManual" type="button">Нет связи с залом? Соединить через код</button>
-              <div id="manualPanel" hidden>
-                <ol class="mlist">
-                  <li><span>Отправьте второму эту ссылку:</span><div class="linkbox"><input id="manualLink" readonly aria-label="Ссылка для соединения через код"><button class="cta sm" id="btnCopyManual" type="button">Скопировать</button></div></li>
-                  <li><span>Он пришлёт в ответ код. Вставьте его сюда:</span><div class="linkbox"><input id="manualAnswer" placeholder="код от второго" aria-label="Код от второго" autocomplete="off" spellcheck="false"><button class="cta sm" id="btnManualGo" type="button">Соединить</button></div></li>
-                </ol>
-                <p class="err" id="manualErr" hidden></p>
-                <p class="note">Такая ссылка работает для одного подключения. Для следующего нажмите «Новая ссылка».</p>
-                <button class="link" id="btnManualNew" type="button">Новая ссылка</button>
-              </div>
-            </div>
-            <button class="ghost" id="btnInviteClose" type="button">Скрыть</button>
+            <p class="note">Если вам прислали ссылку, откройте её: скачивать ничего не нужно.</p>
           </div>
         </div>
 
         <div class="ov" id="ovJoin" hidden>
           <div class="ov-in">
-            <div class="eyebrow">Приглашение</div>
             <h2 id="joinTitle">Вас зовут смотреть фильм</h2>
             <div class="filmline" id="joinFilm" hidden></div>
             <label class="field" for="joinName"><span>Как вас зовут</span><input id="joinName" maxlength="32" autocomplete="nickname" placeholder="Имя"></label>
-            <button class="cta" id="btnJoin" type="button">Войти в зал</button>
-            <p class="hint">Скачивать фильм не нужно: он придёт от ведущего.</p>
+            <button class="btn" id="btnJoin" type="button">Войти в зал</button>
+            <p class="hint">Скачивать фильм не нужно, он придёт от того, кто вас позвал.</p>
           </div>
         </div>
 
         <div class="ov" id="ovConnect" hidden>
           <div class="ov-in">
-            <div class="eyebrow" id="cEyebrow">Подключение</div>
             <h2 id="cTitle">Соединяемся с ведущим…</h2>
+            <div class="status" id="cEyebrow" hidden></div>
             <p id="cText" hidden></p>
             <ol class="progress" id="cSteps">
               <li id="stRelay">Связь с залом</li>
               <li id="stHost">Ведущий на месте</li>
-              <li id="stP2p">Прямое соединение</li>
+              <li id="stP2p">Видеоканал</li>
             </ol>
-            <button class="cta" id="btnRetry" type="button" hidden>Повторить сейчас</button>
+            <button class="btn" id="btnRetry" type="button" hidden>Повторить сейчас</button>
             <p class="techline" id="cTech" hidden></p>
           </div>
         </div>
 
         <div class="ov" id="ovAnswer" hidden>
           <div class="ov-in">
-            <div class="eyebrow">Соединение через код</div>
             <h2>Отправьте этот код ведущему</h2>
-            <p>Ведущий вставит его у себя, и фильм появится здесь.</p>
+            <p>Он вставит его у себя, и фильм появится здесь.</p>
             <textarea class="code" id="answerCode" readonly rows="4" aria-label="Код для ведущего" spellcheck="false"></textarea>
-            <div class="btnline"><button class="cta" id="btnCopyAnswer" type="button">Скопировать код</button><button class="ghost" id="btnShareAnswer" type="button" hidden>Поделиться…</button></div>
+            <div class="btnline"><button class="btn" id="btnCopyAnswer" type="button">Скопировать код</button><button class="btn2" id="btnShareAnswer" type="button" hidden>Поделиться…</button></div>
             <div class="statusline" id="answerStatus"><i></i><span>Ждём, пока ведущий вставит код…</span></div>
           </div>
         </div>
 
         <div class="ov" id="ovError" hidden>
           <div class="ov-in">
-            <div class="eyebrow warn">Не воспроизводится</div>
             <h2 id="errTitle">Не получается открыть этот файл</h2>
             <p id="errText"></p>
-            <button class="cta" id="btnErrOther" type="button">Выбрать другой файл</button>
+            <button class="btn" id="btnErrOther" type="button">Выбрать другой файл</button>
           </div>
         </div>
 
         <div class="ov scrim" id="ovSound" hidden>
           <div class="ov-in">
-            <h2>Фильм идёт</h2>
-            <p>Браузер не включает звук без нажатия.</p>
-            <button class="cta" id="btnSound" type="button">Включить звук</button>
+            <h2>Фильм идёт без звука</h2>
+            <p>Браузер включает звук только после нажатия.</p>
+            <button class="btn" id="btnSound" type="button">Включить звук</button>
           </div>
         </div>
       </div>
@@ -411,31 +399,38 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       <div class="controls">
         <div class="seekrow">
           <span class="tc" id="tcNow">00:00</span>
-          <div class="seekwrap"><input type="range" id="seek" min="0" max="0" step="any" value="0" aria-label="Перемотка" disabled></div>
+          <div class="seekwrap">
+            <input type="range" id="seek" min="0" max="0" step="any" value="0" aria-label="Перемотка" disabled>
+            <div class="marks" id="marks" aria-hidden="true"></div>
+          </div>
           <span class="tc" id="tcDur">--:--</span>
         </div>
         <div class="btnrow">
           <div class="grp">
-            <button class="ibtn txt" id="btnBack" type="button" aria-label="Назад на 10 секунд" title="Назад 10 с (←)" disabled>−10</button>
-            <button class="play" id="btnPlay" type="button" aria-label="Смотреть" title="Плей / пауза (пробел)" disabled></button>
-            <button class="ibtn txt" id="btnFwd" type="button" aria-label="Вперёд на 10 секунд" title="Вперёд 10 с (→)" disabled>+10</button>
-          </div>
-          <div class="grp" id="reacts" aria-label="Реакции">
-            <button class="rx" type="button" data-e="❤️" aria-label="Реакция: сердце" disabled>❤️</button>
-            <button class="rx" type="button" data-e="😂" aria-label="Реакция: смех" disabled>😂</button>
-            <button class="rx" type="button" data-e="😮" aria-label="Реакция: удивление" disabled>😮</button>
-            <button class="rx" type="button" data-e="😭" aria-label="Реакция: слёзы" disabled>😭</button>
-            <button class="rx" type="button" data-e="🔥" aria-label="Реакция: огонь" disabled>🔥</button>
+            <button class="ibtn" id="btnBack" type="button" aria-label="Назад на 10 секунд" title="Назад на 10 секунд (←)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.6 8.4A8 8 0 1 1 4 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5.2 3.8v4.8h4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="12.6" y="16.2" text-anchor="middle" font-size="7.4" font-weight="600" font-family="Onest,-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
+            <button class="play" id="btnPlay" type="button" aria-label="Смотреть" title="Плей и пауза (пробел)" disabled></button>
+            <button class="ibtn" id="btnFwd" type="button" aria-label="Вперёд на 10 секунд" title="Вперёд на 10 секунд (→)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.4 8.4A8 8 0 1 0 20 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.8 3.8v4.8H14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="11.4" y="16.2" text-anchor="middle" font-size="7.4" font-weight="600" font-family="Onest,-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
           </div>
           <div class="grp">
+            <div class="grp">
+              <button class="ibtn" id="btnReact" type="button" aria-label="Реакции" aria-expanded="false" title="Реакции" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 13.8c.8 1.3 2 2 3.4 2s2.6-.7 3.4-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9.3" cy="9.9" r="1.1" fill="currentColor"/><circle cx="14.7" cy="9.9" r="1.1" fill="currentColor"/></svg></button>
+              <!-- avoid-ai-design-ignore-file: I2 (реакции и есть эмодзи: это то, что зрители отправляют друг другу, а не иконки) -->
+              <div class="tray" id="reacts" role="group" aria-label="Реакции" hidden>
+                <button class="rx" type="button" data-e="❤️" aria-label="Сердце" disabled>❤️</button>
+                <button class="rx" type="button" data-e="😂" aria-label="Смех" disabled>😂</button>
+                <button class="rx" type="button" data-e="😮" aria-label="Удивление" disabled>😮</button>
+                <button class="rx" type="button" data-e="😭" aria-label="Слёзы" disabled>😭</button>
+                <button class="rx" type="button" data-e="🔥" aria-label="Огонь" disabled>🔥</button>
+              </div>
+            </div>
             <button class="ibtn" id="btnMute" type="button" aria-label="Выключить звук" title="Звук (M)"></button>
             <input type="range" class="vol" id="vol" min="0" max="1" step="0.05" value="1" aria-label="Громкость">
-            <button class="ibtn txt host-only" id="btnQuality" type="button" aria-label="Качество для второго" title="Качество для второго">HD</button>
-            <button class="ibtn host-only" id="btnSubs" type="button" aria-label="Субтитры" aria-pressed="false" title="Субтитры: загрузить .srt, потом включать и выключать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6.8 14.6h5M13.8 14.6h3.4M6.8 11.2h2.6M11.6 11.2h5.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
-            <button class="ibtn host-only" id="btnInvite" type="button" aria-label="Позвать второго" title="Ссылка для второго"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.5" cy="8.5" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.6-3.3 3-5.2 6-5.2s5.4 1.9 6 5.2M18.5 8v6M15.5 11h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
-            <button class="ibtn host-only" id="btnFile" type="button" aria-label="Сменить фильм" title="Сменить фильм"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h4l2 2h8a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 17z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></button>
-            <button class="ibtn" id="btnChat" type="button" aria-label="Чат" aria-pressed="true" title="Показать или скрыть чат (C)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5h-9l-4.5 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span class="badge" id="unread" hidden></span></button>
-            <button class="ibtn" id="btnFull" type="button" aria-label="Во весь экран" aria-pressed="false" title="Во весь экран (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4.5h4.5M20 9V4.5h-4.5M4 15v4.5h4.5M20 15v4.5h-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="ibtn txt host-only" id="btnQuality" type="button" aria-label="Качество для второго зрителя" title="Качество для второго зрителя">HD</button>
+            <button class="ibtn host-only" id="btnSubs" type="button" aria-label="Субтитры" aria-pressed="false" title="Субтитры: загрузить .srt, потом включать и выключать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.8 14.6h5M13.8 14.6h3.4M6.8 11.2h2.6M11.6 11.2h5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+            <button class="ibtn host-only" id="btnInvite" type="button" aria-label="Ссылка для второго зрителя" title="Ссылка для второго зрителя"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 13.7a3.6 3.6 0 0 0 5.1 0l3.1-3.1a3.6 3.6 0 0 0-5.1-5.1l-1.2 1.2M13.7 10.3a3.6 3.6 0 0 0-5.1 0l-3.1 3.1a3.6 3.6 0 0 0 5.1 5.1l1.2-1.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+            <button class="ibtn host-only" id="btnFile" type="button" aria-label="Сменить фильм" title="Сменить фильм"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h4l2 2h8a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 17z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+            <button class="ibtn" id="btnChat" type="button" aria-label="Чат" aria-pressed="true" title="Показать или скрыть чат (C)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5h-9l-4.5 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" id="unread" hidden></span></button>
+            <button class="ibtn" id="btnFull" type="button" aria-label="Во весь экран" aria-pressed="false" title="Во весь экран (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4.5h4.5M20 9V4.5h-4.5M4 15v4.5h4.5M20 15v4.5h-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
         </div>
       </div>
@@ -445,8 +440,33 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       <div class="chat-head">
         <h2>Чат</h2>
         <span class="typing" id="typing"></span>
-        <label class="nick" for="nick">Вы: <input id="nick" maxlength="32" placeholder="ваше имя" autocomplete="nickname"></label>
+        <label class="nick" for="nick">Вы <input id="nick" maxlength="32" placeholder="ваше имя" autocomplete="nickname"></label>
       </div>
+
+      <section class="room" id="ovInvite" aria-label="Ссылка для второго зрителя" hidden>
+        <h3>Позовите второго зрителя</h3>
+        <p>Отправьте ему эту ссылку, например в Telegram. Когда он её откроет, фильм появится у него.</p>
+        <div class="linkbox"><input id="inviteLink" readonly aria-label="Ссылка на зал"><button class="btn sm" id="btnCopyLink" type="button">Скопировать</button></div>
+        <button class="btn2" id="btnShareLink" type="button" hidden>Поделиться…</button>
+        <div class="row"><label for="hostName">Ваше имя</label><input id="hostName" maxlength="32" autocomplete="nickname" placeholder="его увидит второй"></div>
+        <div class="statusline" id="inviteStatus"><i></i><span id="inviteStatusText">Ждём подключения…</span></div>
+        <p class="techline" id="inviteTech" hidden></p>
+        <p class="note">Пока идёт фильм, не закрывайте и не сворачивайте эту вкладку: видео идёт отсюда.</p>
+        <div class="manual" id="manualBox">
+          <button class="link" id="btnManual" type="button">Нет связи с залом? Соединить через код</button>
+          <div class="manual" id="manualPanel" hidden>
+            <ol class="mlist">
+              <li>Отправьте второму эту ссылку:<div class="linkbox"><input id="manualLink" readonly aria-label="Ссылка для соединения через код"><button class="btn sm" id="btnCopyManual" type="button">Скопировать</button></div></li>
+              <li>Он пришлёт в ответ код. Вставьте его сюда:<div class="linkbox"><input id="manualAnswer" placeholder="код от второго" aria-label="Код от второго" autocomplete="off" spellcheck="false"><button class="btn sm" id="btnManualGo" type="button">Соединить</button></div></li>
+            </ol>
+            <p class="err" id="manualErr" hidden></p>
+            <p class="note">Такая ссылка работает для одного подключения. Для следующего нажмите «Новая ссылка».</p>
+            <button class="link" id="btnManualNew" type="button">Новая ссылка</button>
+          </div>
+        </div>
+        <div class="room-foot"><button class="link" id="btnInviteClose" type="button">Скрыть</button></div>
+      </section>
+
       <div class="log" id="log" role="log"></div>
       <div class="cnote" id="chatNote" hidden></div>
       <form class="composer" id="composer">
@@ -478,7 +498,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     'ovError', 'errTitle', 'errText', 'btnErrOther', 'ovSound', 'btnSound',
     'seek', 'tcNow', 'tcDur', 'btnBack', 'btnPlay', 'btnFwd', 'reacts', 'btnMute', 'vol', 'btnQuality', 'btnSubs',
     'btnInvite', 'btnFile', 'btnChat', 'unread', 'btnFull',
-    'chat', 'typing', 'nick', 'log', 'chatNote', 'composer', 'msg', 'btnSend', 'fileIn', 'subsIn'
+    'chat', 'typing', 'nick', 'log', 'chatNote', 'composer', 'msg', 'btnSend', 'fileIn', 'subsIn',
+    'marks', 'chatSubs', 'btnReact'
   ].forEach((id) => { E[id] = $(id); });
 
   const QS = new URLSearchParams(location.search);
@@ -1351,7 +1372,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     V.srcObject = null;
     V.src = S.url;
     hostAudioWire();
-    if (!changed) S.inviteOpen = true;
+    if (!changed) { S.inviteOpen = true; ensureChatVisible(); }
     startRoom();
     try {
       if ('mediaSession' in navigator && window.MediaMetadata) navigator.mediaSession.metadata = new MediaMetadata({ title: S.file.name, artist: 'Кино на двоих' });
@@ -1794,9 +1815,12 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     log.textContent = '';
     if (!items.length) {
       const empty = el('div', 'chat-empty');
-      empty.append(el('div', 'chat-empty-h', 'Здесь будет ваш чат'),
-        el('div', '', 'Каждое сообщение помечается моментом фильма, к которому оно относится.'));
+      const tip = el('div', '');
+      tip.append(document.createTextNode('У каждого сообщения будет время фильма, а на шкале появится отметка. Если чат скрыт, сообщения второго зрителя покажутся поверх кадра '),
+        el('b', '', 'жёлтым'), document.createTextNode(', как субтитры.'));
+      empty.append(el('div', 'chat-empty-h', 'Сообщений пока нет'), tip);
       log.append(empty);
+      renderMarks();
       return;
     }
     let prev = null;
@@ -1814,6 +1838,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       prev = it;
     }
     if (forceBottom || nearBottom) log.scrollTop = log.scrollHeight;
+    renderMarks();
   }
   function canChat() { return isHost() ? !!S.file : (isGuest() && S.dcOpen); }
   function sendChat() {
@@ -1832,7 +1857,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     if (!chatVisible()) {
       S.unread++;
       updateUnread();
-      toast((m.n || 'Гость') + ': ' + (m.x.length > 90 ? m.x.slice(0, 90) + '…' : m.x), 4500);
+      showChatSub(m);
     }
   }
   function react(e) {
@@ -1986,11 +2011,10 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
 
   function renderLanding() {
     const reopen = S.reopen && !S.file;
-    E.landEyebrow.textContent = reopen ? 'Зал ждёт фильм' : 'Совместный просмотр';
-    E.landTitle.textContent = reopen ? 'Откройте фильм снова' : 'Откройте фильм — второй посмотрит его у себя';
+    E.landTitle.textContent = reopen ? 'Откройте фильм снова' : 'Откройте фильм';
     E.landText.textContent = reopen
-      ? 'После перезагрузки страницы браузер забывает файл. Ссылка для второго осталась прежней: как только вы откроете фильм, он снова подключится.'
-      : 'Файл остаётся у вас и никуда не загружается. Картинка и звук идут второму зрителю напрямую через интернет, а ставить на паузу и перематывать могут оба.';
+      ? 'После перезагрузки страницы браузер забывает файл. Ссылка для второго зрителя осталась прежней: как только вы откроете фильм, он подключится снова.'
+      : 'Файл остаётся у вас. Картинка и звук идут второму зрителю прямо с вашего компьютера, а ставить на паузу и перематывать могут оба.';
   }
   function renderInvite() {
     E.inviteLink.value = S.secret ? inviteLink() : '';
@@ -2032,14 +2056,14 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       E.joinFilm.textContent = '';
       const b = el('b', '', '«' + S.hostFile.name + '»');
       E.joinFilm.append(b);
-      if (S.hostFile.d) E.joinFilm.append(document.createTextNode(' · ' + fmt(S.hostFile.d, S.hostFile.d >= 3600)));
+      if (S.hostFile.d) E.joinFilm.append(document.createTextNode(', ' + fmt(S.hostFile.d, S.hostFile.d >= 3600)));
     }
   }
   function renderConnect() {
     const now = Date.now(), since = now - (S.joinAt || now);
     const relayOk = Sig.ready();
     const hostOk = !!S.pc || (S.hostSeenAt > 0 && now - S.hostSeenAt < 15000);
-    let eyebrow = 'Подключение', title = 'Соединяемся с ведущим…', text = '', retry = false, warn = false;
+    let eyebrow = '', title = 'Соединяемся с ведущим…', text = '', retry = false, warn = false;
     setStep(E.stRelay, relayOk ? 'done' : (since > 12000 ? 'fail' : 'now'));
     setStep(E.stHost, relayOk ? (hostOk ? 'done' : 'now') : '');
     setStep(E.stP2p, hostOk ? (S.p2pFailed ? 'fail' : 'now') : '');
@@ -2047,10 +2071,10 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       setStep(E.stRelay, 'done'); setStep(E.stHost, 'done'); setStep(E.stP2p, S.p2pFailed ? 'fail' : 'now');
     }
     if (S.gState === 'lost' && S.hostLeft) {
-      eyebrow = 'Ведущий вышел'; title = 'Ждём, когда ведущий вернётся';
+      title = 'Ведущий вышел из зала';
       text = 'Как только он снова откроет фильм, всё подключится само. Страницу закрывать не нужно.';
     } else if (S.gState === 'lost') {
-      eyebrow = 'Связь прервалась'; title = 'Переподключаемся…';
+      title = 'Связь прервалась, переподключаемся…';
       text = 'Связь с ведущим пропала. Как только она восстановится, фильм появится снова.';
     }
     if (S.manualError) { text = S.manualError; warn = true; }
@@ -2072,13 +2096,14 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
         'unknown': ['Не удаётся соединиться', 'Выключите VPN у обоих или смените сеть.']
       };
       const d = D[S.diag] || D.unknown;
-      eyebrow = S.failCount > 1 ? 'Попытка ' + S.failCount + ' не удалась' : 'Не получилось';
+      eyebrow = S.failCount > 1 ? 'Попытка ' + S.failCount + ' не удалась' : 'Попытка не удалась';
       title = d[0];
       text = d[1] + ' Подключение повторяется само, страницу обновлять не нужно.';
       retry = true; warn = true;
     }
     E.cEyebrow.textContent = eyebrow;
-    E.cEyebrow.className = 'eyebrow' + (warn ? ' warn' : '');
+    E.cEyebrow.className = 'status' + (warn ? ' warn' : '');
+    E.cEyebrow.hidden = !eyebrow;
     E.cTitle.textContent = title;
     E.cText.hidden = !text;
     E.cText.textContent = text;
@@ -2145,6 +2170,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     E.msg.disabled = !can;
     E.btnSend.disabled = !can;
     for (const b of E.reacts.querySelectorAll('button')) b.disabled = !can;
+    E.btnReact.disabled = !can;
+    if (!can) closeTray();
     let names = [];
     if (isHost()) names = openGuests().filter((g) => g.typing).map((g) => g.name || 'Гость');
     else names = S.typingNames;
@@ -2169,10 +2196,11 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       else if (S.gState !== 'connected') ov = (S.manualMode && S.answerCode && !S.manualError) ? 'answer' : 'connect';
     } else if (isHost() && S.file) {
       if (S.error) ov = 'error';
-      else if (S.inviteOpen) ov = 'invite';
     } else ov = 'landing';
+    const room = isHost() && !!S.file && !S.error && S.inviteOpen;
     E.ovLanding.hidden = ov !== 'landing';
-    E.ovInvite.hidden = ov !== 'invite';
+    E.ovInvite.hidden = !room;
+    if (room) renderInvite();
     E.ovJoin.hidden = ov !== 'join';
     E.ovConnect.hidden = ov !== 'connect';
     E.ovAnswer.hidden = ov !== 'answer';
@@ -2183,7 +2211,6 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     E.app.classList.toggle('host', isHost());
     E.app.classList.toggle('guest', isGuest());
     if (ov === 'landing') renderLanding();
-    else if (ov === 'invite') renderInvite();
     else if (ov === 'join') renderJoin();
     else if (ov === 'connect') renderConnect();
     else if (ov === 'answer') renderAnswer();
@@ -2199,14 +2226,56 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
 
     let wait = '';
     if (isGuest() && S.gState === 'connected') {
-      if (!S.hs.p && S.hs.ct < 1) wait = (S.hostName || 'Ведущий') + ' ещё не включил фильм — можно нажать ▶';
+      if (!S.hs.p && S.hs.ct < 1) wait = (S.hostName || 'Ведущий') + ' ещё не включил фильм. Можно включить и отсюда';
       else if (S.hs.w) wait = 'У ведущего загружается фильм…';
     } else if (isHost() && S.file && !S.inviteOpen && !openGuests().length && Sig.ready()) {
       wait = 'Второй ещё не подключился';
     }
     E.wait.hidden = !wait;
     E.wait.textContent = wait;
-    renderPeople(); renderConn(); renderChatState(); renderSubs(); renderVol();
+    renderPeople(); renderConn(); renderChatState(); renderSubs(); renderVol(); renderMarks();
+  }
+  // Сообщения чата отмечены на шкале фильма: свои серым, чужие жёлтым.
+  let marksSig = '';
+  function renderMarks() {
+    const d = curDur();
+    const list = d > 0 ? sortedMessages().filter((m) => m.vt != null && m.vt <= d + 1) : [];
+    const sig = d + '|' + S.key + '|' + list.length + '|' + (list.length ? list[list.length - 1].id : '');
+    if (sig === marksSig) return;
+    marksSig = sig;
+    E.marks.textContent = '';
+    for (const m of list) {
+      const k = el('span', 'mark' + (m.k && m.k === S.key ? '' : ' them'));
+      k.style.left = Math.min(100, Math.max(0, (m.vt / d) * 100)) + '%';
+      E.marks.append(k);
+    }
+  }
+  // Пока чат скрыт, сообщения других появляются поверх кадра, как субтитры.
+  function showChatSub(m) {
+    const line = el('div', 'cs');
+    line.append(el('b', '', (m.n || 'Гость') + ': '), document.createTextNode(m.x.length > 140 ? m.x.slice(0, 140) + '…' : m.x));
+    E.chatSubs.append(line);
+    while (E.chatSubs.children.length > 2) E.chatSubs.firstElementChild.remove();
+    setTimeout(() => line.remove(), Math.min(9000, 3500 + m.x.length * 60));
+  }
+  let trayTimer = 0;
+  function closeTray() {
+    clearTimeout(trayTimer);
+    if (E.reacts.hidden) return;
+    E.reacts.hidden = true;
+    E.btnReact.setAttribute('aria-expanded', 'false');
+  }
+  function openTray() {
+    E.reacts.hidden = false;
+    E.btnReact.setAttribute('aria-expanded', 'true');
+    clearTimeout(trayTimer);
+    trayTimer = setTimeout(closeTray, 5000);
+  }
+  function ensureChatVisible() {
+    if (chatVisible()) return;
+    if (isCinema()) S.cinemaChat = true; else S.chatOpen = true;
+    renderChatVis();
+    renderLog(true);
   }
   function tickUI() {
     const d = curDur(), has = Number.isFinite(d) && d > 0, long = has && d >= 3600;
@@ -2313,7 +2382,16 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   E.btnShareLink.addEventListener('click', () => shareLink(E.inviteLink.value));
   E.inviteLink.addEventListener('focus', () => E.inviteLink.select());
   E.btnInviteClose.addEventListener('click', () => { S.inviteOpen = false; render(); });
-  E.btnInvite.addEventListener('click', () => { S.inviteOpen = true; render(); });
+  E.btnInvite.addEventListener('click', () => {
+    S.inviteOpen = !S.inviteOpen || !chatVisible();
+    if (S.inviteOpen) ensureChatVisible();
+    render();
+    if (S.inviteOpen) { try { E.ovInvite.scrollIntoView({ block: 'nearest' }); } catch (e) { /* ignore */ } }
+  });
+  E.btnReact.addEventListener('click', () => { if (E.reacts.hidden) openTray(); else closeTray(); showControls(); });
+  document.addEventListener('pointerdown', (e) => {
+    if (!E.reacts.hidden && !E.reacts.contains(e.target) && !E.btnReact.contains(e.target)) closeTray();
+  });
   E.btnManual.addEventListener('click', openManual);
   E.btnManualNew.addEventListener('click', () => { E.manualAnswer.value = ''; hostManualStart(); });
   E.btnCopyManual.addEventListener('click', () => { if (S.manual && S.manual.link) copyText(S.manual.link, E.manualLink); });
@@ -2359,7 +2437,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   E.seek.addEventListener('blur', () => { S.scrubbing = false; });
   E.reacts.addEventListener('click', (e) => {
     const b = e.target.closest('button[data-e]');
-    if (b && !b.disabled) react(b.dataset.e);
+    if (b && !b.disabled) { react(b.dataset.e); openTray(); showControls(); }
   });
   for (const inp of [E.nick, E.hostName]) inp.addEventListener('change', () => setName(inp.value));
   E.joinName.addEventListener('change', () => { S.name = clean(E.joinName.value, 32).trim(); LS.set('kn2-name', S.name); E.nick.value = S.name; });
@@ -2473,7 +2551,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       case 'KeyF': e.preventDefault(); toggleFull(); break;
       case 'KeyM': e.preventDefault(); toggleMute(); break;
       case 'KeyC': e.preventDefault(); toggleChat(); break;
-      case 'Escape': if (S.theater) { S.theater = false; updateMode(); } break;
+      case 'Escape': if (!E.reacts.hidden) closeTray(); else if (S.theater) { S.theater = false; updateMode(); } break;
       case 'Enter': if (chatVisible() && !E.msg.disabled) { e.preventDefault(); E.msg.focus(); } break;
       default: break;
     }
