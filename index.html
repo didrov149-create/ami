@@ -487,7 +487,9 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   // STUN узнаёт внешний адрес для прямого соединения. TURN — запасной канал, когда напрямую не пробивается
   // (мобильный интернет, VPN). Данные TURN видны всем, кто откроет код страницы.
   const STUN_URLS = ['stun:stun.l.google.com:19302', 'stun:stun.cloudflare.com:3478', 'stun:stun.sipnet.ru:3478'];
-  const TURN_SERVERS = [];
+  const TURN_SERVERS = [
+    { urls: ['turn:free.expressturn.com:3478', 'turn:free.expressturn.com:3478?transport=tcp'], username: '000000002108777276', credential: 'zYP73GXDpCLKKbQ9XWONPgrBAYM=' }
+  ];
   function parseTurnParam(v) {
     const parts = String(v || '').split('|');
     if (!/^turns?:/.test(parts[0] || '')) return null;
