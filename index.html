@@ -138,6 +138,8 @@ button:disabled{cursor:default;opacity:.38}
 .mlist li{display:grid;gap:7px;counter-increment:m}
 .mlist li>span::before{content:counter(m) ". ";font-family:var(--f-mono);color:var(--brass)}
 .err{font-size:13px;color:var(--warn)}
+.techline{margin:0;max-width:56ch;font-family:var(--f-mono);font-size:11.5px;line-height:1.45;color:var(--dim);overflow-wrap:anywhere}
+.statusline.bad span{text-wrap:pretty}
 
 .float{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .fl{position:absolute;bottom:10%;font-size:34px;line-height:1;animation:rise 2.6s ease-out forwards}
@@ -333,9 +335,10 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
             <div class="btnline"><button class="ghost" id="btnShareLink" type="button" hidden>Поделиться…</button></div>
             <label class="field" for="hostName"><span>Ваше имя — его увидит второй</span><input id="hostName" maxlength="32" autocomplete="nickname" placeholder="Имя"></label>
             <div class="statusline" id="inviteStatus"><i></i><span id="inviteStatusText">Ждём подключения…</span></div>
+            <p class="techline" id="inviteTech" hidden></p>
             <p class="note">Во время фильма не закрывайте и не сворачивайте эту вкладку: видео идёт отсюда.</p>
             <div class="manual" id="manualBox">
-              <button class="link" id="btnManual" type="button">Не подключается? Соединить через код</button>
+              <button class="link" id="btnManual" type="button">Нет связи с залом? Соединить через код</button>
               <div id="manualPanel" hidden>
                 <ol class="mlist">
                   <li><span>Отправьте второму эту ссылку:</span><div class="linkbox"><input id="manualLink" readonly aria-label="Ссылка для соединения через код"><button class="cta sm" id="btnCopyManual" type="button">Скопировать</button></div></li>
@@ -371,7 +374,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
               <li id="stHost">Ведущий на месте</li>
               <li id="stP2p">Прямое соединение</li>
             </ol>
-            <button class="cta" id="btnRetry" type="button" hidden>Повторить</button>
+            <button class="cta" id="btnRetry" type="button" hidden>Повторить сейчас</button>
+            <p class="techline" id="cTech" hidden></p>
           </div>
         </div>
 
@@ -469,7 +473,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     'ovInvite', 'inviteLink', 'btnCopyLink', 'btnShareLink', 'hostName', 'inviteStatus', 'inviteStatusText',
     'manualBox', 'btnManual', 'manualPanel', 'manualLink', 'btnCopyManual', 'manualAnswer', 'btnManualGo', 'manualErr', 'btnManualNew', 'btnInviteClose',
     'ovJoin', 'joinTitle', 'joinFilm', 'joinName', 'btnJoin',
-    'ovConnect', 'cEyebrow', 'cTitle', 'cText', 'stRelay', 'stHost', 'stP2p', 'btnRetry',
+    'ovConnect', 'cEyebrow', 'cTitle', 'cText', 'stRelay', 'stHost', 'stP2p', 'btnRetry', 'cTech', 'inviteTech',
     'ovAnswer', 'answerCode', 'btnCopyAnswer', 'btnShareAnswer', 'answerStatus',
     'ovError', 'errTitle', 'errText', 'btnErrOther', 'ovSound', 'btnSound',
     'seek', 'tcNow', 'tcDur', 'btnBack', 'btnPlay', 'btnFwd', 'reacts', 'btnMute', 'vol', 'btnQuality', 'btnSubs',
@@ -480,7 +484,24 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   const QS = new URLSearchParams(location.search);
   const RELAYS = (QS.get('relay') || 'wss://broker.emqx.io:8084/mqtt,wss://broker.hivemq.com:8884/mqtt,wss://test.mosquitto.org:8081/mqtt')
     .split(',').map((s) => s.trim()).filter((s) => /^wss?:\/\//.test(s)).slice(0, 5);
-  const ICE_SERVERS = QS.has('nostun') ? [] : [{ urls: ['stun:stun.sipnet.ru:3478', 'stun:stun.l.google.com:19302', 'stun:stun.cloudflare.com:3478'] }];
+  // STUN узнаёт внешний адрес для прямого соединения. TURN — запасной канал, когда напрямую не пробивается
+  // (мобильный интернет, VPN). Данные TURN видны всем, кто откроет код страницы.
+  const STUN_URLS = ['stun:stun.l.google.com:19302', 'stun:stun.cloudflare.com:3478', 'stun:stun.sipnet.ru:3478'];
+  const TURN_SERVERS = [];
+  function parseTurnParam(v) {
+    const parts = String(v || '').split('|');
+    if (!/^turns?:/.test(parts[0] || '')) return null;
+    return { urls: parts[0].split(','), username: parts[1] || '', credential: parts[2] || '' };
+  }
+  const TURN_LIST = (() => { const p = parseTurnParam(QS.get('turn')); return p ? [p] : TURN_SERVERS; })();
+  const HAS_TURN = TURN_LIST.length > 0;
+  function iceConfig() {
+    const servers = QS.has('nostun') ? [] : [{ urls: STUN_URLS }];
+    for (const t of TURN_LIST) servers.push(t);
+    const cfg = { iceServers: servers, bundlePolicy: 'max-bundle' };
+    if (QS.has('relayonly')) cfg.iceTransportPolicy = 'relay';
+    return cfg;
+  }
   const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const MOBILE = IOS || /Android|Mobile/i.test(navigator.userAgent);
   const HAS_RTC = typeof window.RTCPeerConnection === 'function';
@@ -569,7 +590,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     messages: new Map(), notes: [], typingNames: [], chatOpen: true, cinemaChat: false, theater: false,
     unread: 0, typing: false, typingTimer: 0, lastReact: 0, blocked: false, scrubbing: false,
     subs: null, audioWarned: false, audioTimer: 0, wake: null, tick: 0, ptr: 'mouse',
-    hiddenAt: 0, quietUntil: 0, statsText: '', statsWarn: false, prevBytes: null, loop: 0
+    hiddenAt: 0, quietUntil: 0, statsText: '', statsWarn: false, prevBytes: null, loop: 0,
+    ice: null, diag: null, failCount: 0, attemptFailedFor: null, retryT: 0, viaRelay: false, hostDiag: null
   };
   const isHost = () => S.role === 'host';
   const isGuest = () => S.role === 'guest';
@@ -906,7 +928,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   function srcHeight() { return HM.canvasMode && HM.canvas ? HM.canvas.height : (V.videoHeight || 0); }
   async function applyQuality(g) {
     if (!g || !g.vtx) return;
-    const q = QUALITY[S.quality] || QUALITY.high;
+    let q = QUALITY[S.quality] || QUALITY.high;
+    if (g.viaRelay && q.bps > QUALITY.mid.bps) q = QUALITY.mid;
     try {
       const s = g.vtx.sender, p = s.getParameters();
       if (p.encodings && p.encodings.length) {
@@ -964,8 +987,53 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     Sig.send({ type: 'host', name: myName(), file: fileInfo() });
   }
 
+  /* ===================== диагностика соединения ===================== */
+  const candType = (c) => { const m = / typ (host|srflx|prflx|relay)/.exec(String((c && c.candidate) || c || '')); return m ? m[1] : ''; };
+  const newIce = () => ({ l: { host: 0, srflx: 0, relay: 0 }, r: { host: 0, srflx: 0, relay: 0 } });
+  function countCand(bucket, c) {
+    const t = candType(c);
+    if (t === 'prflx') bucket.srflx++;
+    else if (t && t in bucket) bucket[t]++;
+  }
+  // Почему не соединились: смотрим, какие адреса нашлись у себя и пришли от второй стороны.
+  function diagnose(ice) {
+    if (!ice) return 'unknown';
+    const meOut = ice.l.srflx + ice.l.relay > 0, peerOut = ice.r.srflx + ice.r.relay > 0;
+    if (HAS_TURN && !ice.l.relay && !ice.r.relay) return 'turn-unreachable';
+    if (!meOut) return 'me-blocked';
+    if (!peerOut) return 'peer-blocked';
+    if (!HAS_TURN) return 'nat';
+    return 'relay-failed';
+  }
+  function iceTech(ice, peerLabel) {
+    if (!ice) return '';
+    const f = (b) => 'host ' + b.host + ', srflx ' + b.srflx + ', relay ' + b.relay;
+    return 'тех.: у вас ' + f(ice.l) + ' · у ' + peerLabel + ' ' + f(ice.r) + (HAS_TURN ? '' : ' · relay не настроен');
+  }
+  async function pcViaRelay(pc) {
+    try {
+      const rep = await pc.getStats();
+      const byId = new Map();
+      rep.forEach((r) => byId.set(r.id, r));
+      let pair = null;
+      rep.forEach((r) => { if (r.type === 'transport' && r.selectedCandidatePairId && byId.get(r.selectedCandidatePairId)) pair = byId.get(r.selectedCandidatePairId); });
+      if (!pair) rep.forEach((r) => { if (!pair && r.type === 'candidate-pair' && r.nominated && r.state === 'succeeded') pair = r; });
+      if (!pair) return null;
+      const lt = (byId.get(pair.localCandidateId) || {}).candidateType, rt = (byId.get(pair.remoteCandidateId) || {}).candidateType;
+      return lt === 'relay' || rt === 'relay';
+    } catch (e) { return null; }
+  }
+  async function hostCheckRelay(g) {
+    if (!g || g.closed) return;
+    const r = await pcViaRelay(g.pc);
+    if (r === null || r === g.viaRelay) return;
+    g.viaRelay = r;
+    applyQuality(g);
+    if (r && !g.relayNoted) { g.relayNoted = true; addNote((g.name || 'Второй зритель') + ' смотрит через запасной сервер, качество 720p'); }
+  }
+
   function hostCreatePeer(gid, att, manual) {
-    const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS, bundlePolicy: 'max-bundle' });
+    const pc = new RTCPeerConnection(iceConfig());
     if (!HM.out) HM.out = new MediaStream();
     let vtx, atx;
     try {
@@ -978,8 +1046,10 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     preferCodecs(vtx);
     const dc = pc.createDataChannel('kino', { ordered: true });
     const g = { id: gid, att, pc, dc, vtx, atx, manual, name: '', key: '', open: false, typing: false,
-      createdAt: Date.now(), connectedAt: 0, answered: false, offerSdp: null, offerAt: 0, remoteQ: [], outQ: [], outT: 0, closed: false, prevBytes: null };
+      createdAt: Date.now(), connectedAt: 0, answered: false, offerSdp: null, offerAt: 0, remoteQ: [], outQ: [], outT: 0, closed: false, prevBytes: null,
+      ice: newIce(), viaRelay: false, relayNoted: false };
     pc.onicecandidate = (e) => {
+      if (e.candidate && e.candidate.candidate) countCand(g.ice.l, e.candidate);
       if (g.manual || !e.candidate || !e.candidate.candidate || g.closed) return;
       g.outQ.push(candJSON(e.candidate));
       if (!g.outT) {
@@ -995,7 +1065,11 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       const st = pcState(pc);
       if (st === 'connected') {
         clearTimeout(g.discT);
-        if (!g.connectedAt) { g.connectedAt = Date.now(); applyQuality(g); }
+        if (!g.connectedAt) {
+          g.connectedAt = Date.now(); applyQuality(g);
+          if (S.hostDiag) S.hostDiag = null;
+          setTimeout(() => hostCheckRelay(g), 1500);
+        }
         render();
       } else if (st === 'failed' || st === 'closed') {
         hostDropGuest(g);
@@ -1054,6 +1128,26 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     else if (m.type === 'ice') hostOnIce(m);
     else if (m.type === 'manswer') hostOnManualAnswer(clean(m.g, 40), m.sdp);
     else if (m.type === 'hi') hostAnnounce();
+    else if (m.type === 'diag') hostOnDiag(m);
+  }
+  function hostDiagText(d) {
+    const n = d.name;
+    switch (d.code) {
+      case 'me-blocked': return n + ': его интернет не пропускает видеосвязь. Пусть выключит VPN или подключится к Wi‑Fi.';
+      case 'peer-blocked': return 'Ваш интернет не пропускает видеосвязь. Выключите VPN у себя, и подключение повторится само.';
+      case 'nat': return n + ' не может соединиться напрямую: так бывает на мобильном интернете. Пусть подключится к Wi‑Fi и выключит VPN.';
+      case 'turn-unreachable': return n + ': запасной сервер недоступен из его сети. Пусть выключит VPN или сменит сеть.';
+      case 'relay-failed': return n + ': не получилось даже через запасной сервер. Пусть попробует другую сеть.';
+      default: return n + ' не может подключиться. Пусть выключит VPN или сменит сеть.';
+    }
+  }
+  function hostOnDiag(m) {
+    const g = S.guests.get(m.from);
+    const code = ['me-blocked', 'peer-blocked', 'nat', 'turn-unreachable', 'relay-failed'].includes(m.code) ? m.code : 'unknown';
+    const prev = S.hostDiag;
+    S.hostDiag = { name: (g && g.name) || 'Второй зритель', code, at: Date.now(), tech: g ? iceTech(g.ice, 'зрителя') : '' };
+    if (!S.inviteOpen && (!prev || prev.code !== code || Date.now() - prev.at > 60000)) toast(hostDiagText(S.hostDiag), 8000);
+    render();
   }
   async function hostOnHello(m) {
     const gid = clean(m.from, 40);
@@ -1090,6 +1184,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     const g = S.guests.get(m.from);
     if (!g || g.closed || g.att !== m.att || !Array.isArray(m.c)) return;
     for (const c of m.c.slice(0, 30)) {
+      countCand(g.ice.r, c);
       if (g.pc.remoteDescription) g.pc.addIceCandidate(c).catch(() => {});
       else g.remoteQ.push(c);
     }
@@ -1341,11 +1436,12 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   }
   function guestMakePC(hostPid, att) {
     guestClosePC();
-    const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS, bundlePolicy: 'max-bundle' });
-    S.pc = pc; S.pcAtt = att; S.pcHost = hostPid; S.pcAt = Date.now(); S.outQ = [];
+    const pc = new RTCPeerConnection(iceConfig());
+    S.pc = pc; S.pcAtt = att; S.pcHost = hostPid; S.pcAt = Date.now(); S.outQ = []; S.ice = newIce();
     pc.ontrack = (e) => { if (pc === S.pc) attachRemoteTrack(e.track, e.streams && e.streams[0]); };
     pc.ondatachannel = (e) => { if (pc === S.pc) setupGuestDC(e.channel); };
     pc.onicecandidate = (e) => {
+      if (pc === S.pc && e.candidate && e.candidate.candidate) countCand(S.ice.l, e.candidate);
       if (S.manualMode || !e.candidate || !e.candidate.candidate || pc !== S.pc) return;
       S.outQ.push(candJSON(e.candidate));
       if (!S.outT) {
@@ -1367,21 +1463,37 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     if (st === 'connected') {
       if (S.gState !== 'connected') {
         S.gState = 'connected'; S.everConnected = true; S.p2pFailed = false; S.manualError = ''; S.hostLeft = false;
+        S.diag = null; S.failCount = 0; clearTimeout(S.retryT);
         guestPlayLocal();
+        setTimeout(async () => { if (S.pc === pc) { const r = await pcViaRelay(pc); if (r !== null) { S.viaRelay = r; renderConn(); } } }, 1500);
       }
       render();
     } else if (st === 'failed') {
       if (S.gState === 'connected') { guestLost(); return; }
-      S.p2pFailed = true;
-      render();
-      if (!S.manualMode) setTimeout(() => { if (S.pc === pc) guestRetry(); }, 2500);
+      guestAttemptFailed(pc);
     } else if (st === 'disconnected') {
       clearTimeout(S.discT);
       S.discT = setTimeout(() => { if (S.pc === pc && pcState(pc) === 'disconnected') guestLost(); }, 12000);
     }
   }
+  // Попытка не удалась (ICE сдался или за 25 секунд не соединился): объясняем причину,
+  // сообщаем ведущему и через несколько секунд пробуем снова.
+  function guestAttemptFailed(pc) {
+    if (!pc || pc !== S.pc || S.attemptFailedFor === pc) return;
+    S.attemptFailedFor = pc;
+    S.p2pFailed = true;
+    S.failCount++;
+    S.diag = diagnose(S.ice);
+    if (!S.manualMode && S.pcHost) Sig.send({ type: 'diag', to: S.pcHost, att: S.pcAtt, code: S.diag });
+    render();
+    if (!S.manualMode) {
+      clearTimeout(S.retryT);
+      S.retryT = setTimeout(() => { if (S.pc === pc) guestRetry(); }, 6000);
+    }
+  }
   function guestRetry() {
     if (!isGuest() || !S.joined) return;
+    clearTimeout(S.retryT);
     if (S.manualMode) { S.manualMode = false; S.offerCode = null; S.answerCode = null; }
     S.att++;
     guestClosePC();
@@ -1421,14 +1533,14 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       Sig.send({ type: 'answer', to: m.from, att: m.att, sdp: S.lastAnswer, name: myName() });
       const q = S.candQ.filter((it) => it.from === m.from && it.att === m.att);
       S.candQ = [];
-      for (const it of q) for (const c of it.c) pc.addIceCandidate(c).catch(() => {});
+      for (const it of q) for (const c of it.c) { countCand(S.ice.r, c); pc.addIceCandidate(c).catch(() => {}); }
     } catch (e) { console.warn('offer', e); }
     render();
   }
   function guestOnIce(m) {
     if (!Array.isArray(m.c)) return;
     if (S.pc && m.from === S.pcHost && m.att === S.pcAtt && S.pc.remoteDescription) {
-      for (const c of m.c.slice(0, 30)) S.pc.addIceCandidate(c).catch(() => {});
+      for (const c of m.c.slice(0, 30)) { countCand(S.ice.r, c); S.pc.addIceCandidate(c).catch(() => {}); }
     } else {
       S.candQ.push({ from: m.from, att: m.att, c: m.c.slice(0, 30) });
       if (S.candQ.length > 40) S.candQ.shift();
@@ -1883,15 +1995,19 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     E.btnShareLink.hidden = typeof navigator.share !== 'function';
     const st = E.inviteStatus, open = openGuests();
     const pending = Array.from(S.guests.values()).filter((g) => !g.open && !g.manual);
-    let cls = '', text;
+    let cls = '', text, tech = '';
+    const diag = S.hostDiag && Date.now() - S.hostDiag.at < 60000 ? S.hostDiag : null;
     if (open.length) { cls = 'ok'; text = open.map((g) => g.name || 'Гость').join(', ') + ' в зале'; }
+    else if (diag) { cls = 'bad'; text = hostDiagText(diag) + ' Пробуем снова…'; tech = diag.tech; }
     else if (pending.length) { text = 'Подключается: ' + (pending[0].name || 'второй зритель') + '…'; }
     else if (Sig.ready()) { text = 'Ждём подключения…'; }
     else if (Date.now() - S.roomAt > 10000) { cls = 'bad'; text = 'Нет связи с ретранслятором. Соединитесь через код — это работает и без него.'; }
     else { text = 'Открываем зал…'; }
     st.className = 'statusline' + (cls ? ' ' + cls : '');
     E.inviteStatusText.textContent = text;
-    if (cls === 'bad' && !S.manualAuto) { S.manualAuto = true; openManual(); }
+    E.inviteTech.hidden = !tech;
+    E.inviteTech.textContent = tech;
+    if (cls === 'bad' && !diag && !S.manualAuto) { S.manualAuto = true; openManual(); }
     renderManual();
   }
   function openManual() {
@@ -1944,8 +2060,19 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       title = 'Ведущий пока не в зале';
       text = 'Как только он откроет фильм, всё подключится само. Страницу закрывать не нужно.';
     } else if (S.p2pFailed) {
-      title = 'Не удаётся соединиться напрямую';
-      text = 'Чаще всего мешает VPN. Выключите его у обоих — подключение повторится само.';
+      const host = S.hostName || 'ведущего';
+      const D = {
+        'me-blocked': ['Ваш интернет не пропускает видеосвязь', 'Похоже, мешает VPN или сеть. Выключите VPN или подключитесь к Wi‑Fi.'],
+        'peer-blocked': ['У ведущего интернет не пропускает видеосвязь', 'Скорее всего, у ' + host + ' включён VPN. Пусть выключит его.'],
+        'nat': ['Ваши сети не соединяются напрямую', 'Так бывает на мобильном интернете. Подключитесь к Wi‑Fi и выключите VPN.'],
+        'turn-unreachable': ['Запасной сервер недоступен', 'Из вашей сети до него не достучаться. Выключите VPN или смените сеть.'],
+        'relay-failed': ['Не получилось даже через запасной сервер', 'Попробуйте другую сеть или выключите VPN.'],
+        'unknown': ['Не удаётся соединиться', 'Выключите VPN у обоих или смените сеть.']
+      };
+      const d = D[S.diag] || D.unknown;
+      eyebrow = S.failCount > 1 ? 'Попытка ' + S.failCount + ' не удалась' : 'Не получилось';
+      title = d[0];
+      text = d[1] + ' Подключение повторяется само, страницу обновлять не нужно.';
       retry = true; warn = true;
     }
     E.cEyebrow.textContent = eyebrow;
@@ -1954,6 +2081,9 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     E.cText.hidden = !text;
     E.cText.textContent = text;
     E.btnRetry.hidden = !retry;
+    const tech = S.p2pFailed ? iceTech(S.ice, 'ведущего') : '';
+    E.cTech.hidden = !tech;
+    E.cTech.textContent = tech;
   }
   function renderAnswer() {
     if (E.answerCode.value !== (S.answerCode || '')) E.answerCode.value = S.answerCode || '';
@@ -2116,6 +2246,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       if (ref.prevBytes && now > ref.prevBytes.at) bps = Math.max(0, ((bytes - ref.prevBytes.b) * 8 * 1000) / (now - ref.prevBytes.at));
       ref.prevBytes = { b: bytes, at: now };
       const parts = [];
+      if (ref.viaRelay) parts.push('через relay');
       if (h) parts.push(h + 'p');
       if (fps) parts.push(Math.round(fps) + ' к/с');
       if (bps) parts.push(fmtMbps(bps));
@@ -2138,7 +2269,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
       if (now - S.lastHostAnnounce > 3000) hostAnnounce();
       if (!V.paused) bcast(hostStateMsg());
       for (const g of Array.from(S.guests.values())) {
-        if (!g.connectedAt && !g.closed && now - g.createdAt > (g.manual ? 600000 : 30000)) hostDropGuest(g);
+        if (!g.connectedAt && !g.closed && now - g.createdAt > (g.manual ? 600000 : 45000)) hostDropGuest(g);
+        else if (g.connectedAt && S.loop % 10 === 0) hostCheckRelay(g);
       }
       if (S.inviteOpen) renderInvite();
       else renderConn();
@@ -2146,7 +2278,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
     if (isGuest() && S.joined) {
       if (!S.manualMode && S.gState !== 'connected') {
         if (now - S.lastHello > 2000) guestHello();
-        if (S.pc && now - S.pcAt > 20000 && pcState(S.pc) !== 'connected') guestRetry();
+        if (S.pc && now - S.pcAt > 25000 && pcState(S.pc) !== 'connected') guestAttemptFailed(S.pc);
       }
       if (S.gState !== 'connected') render();
     }
@@ -2188,7 +2320,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--dim)}
   E.manualAnswer.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); hostManualAnswerFromInput(); } });
   E.btnJoin.addEventListener('click', guestJoin);
   E.joinName.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); guestJoin(); } });
-  E.btnRetry.addEventListener('click', () => { S.p2pFailed = false; S.manualError = ''; guestRetry(); });
+  E.btnRetry.addEventListener('click', () => { S.p2pFailed = false; S.diag = null; S.manualError = ''; guestRetry(); });
   E.btnCopyAnswer.addEventListener('click', () => copyText(S.answerCode || '', E.answerCode));
   E.btnShareAnswer.addEventListener('click', () => { if (navigator.share && S.answerCode) navigator.share({ text: S.answerCode }).catch(() => {}); });
   E.answerCode.addEventListener('focus', () => E.answerCode.select());
