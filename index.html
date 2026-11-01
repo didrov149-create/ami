@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Кино на двоих</title>
 <meta name="description" content="Один открывает фильм у себя, второй смотрит по ссылке. Пауза, перемотка и чат общие.">
-<meta name="theme-color" content="#0f0f0f">
+<meta name="theme-color" content="#111111">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
@@ -17,34 +17,40 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Onest";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/onest-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Onest";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/onest-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Onest";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/onest-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sofia-sans-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sofia-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/sofia-sans-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/sofia-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/sofia-sans-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/sofia-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/sofia-sans-extra-condensed-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/sofia-sans-extra-condensed-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/sofia-sans-extra-condensed-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* Ночной зал: фильм занимает почти всё, интерфейс вокруг — тихая тёмная рамка из нейтральных тонов.
-   Жёлтый — цвет субтитров и цвет другого зрителя: его имя, его сообщения на шкале и поверх кадра. */
+/* «Билет»: тёмный зал, фильм почти во всё окно. Единственное светлое пятно — бумажный билет сеанса
+   (бледно-зелёная бумага, тёмно-зелёная краска). Тем же бумажным цветом отмечен другой зритель:
+   его имя, его метки на шкале и его строки поверх кадра. */
 :root{
-  --ground:#0f0f0f; --surface:#171717; --raised:#212121; --hover:#2b2b2b; --line:#2a2a2a; --control:#474747;
-  --ink:#f2f2f2; --muted:#b4b4b4; --faint:#949494; --on-ink:#0f0f0f;
-  --sub:#ffd84a; --on-sub:#1d1700;
-  --ok:#3fc07a; --warn:#ff8f7a;
+  --ground:#111111; --surface:#191919; --raised:#232323; --hover:#2c2c2c; --line:#2d2d2d; --control:#4a4a4a;
+  --ink:#efefec; --muted:#ababa8; --faint:#8e8e8b; --on-ink:#111111;
+  --paper:#d6dfcd; --paper-hi:#e4eadc; --paper-ink:#1c3326; --paper-faint:#48604f; --perf:rgba(28,51,38,.32);
+  --warn:#ff8f7a;
   --screen:#000; --scrim:rgba(0,0,0,.74); --shade:rgba(0,0,0,.88); --shade-2:rgba(0,0,0,.5);
-  --font:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font:"Sofia Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --cond:"Sofia Sans Extra Condensed","Arial Narrow","Roboto Condensed",sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --r:6px; --r-panel:8px;
+  --r:4px; --r-panel:6px;
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--ground)}
 html,body{height:100%}
-body{margin:0;background:var(--ground);color:var(--ink);font:400 14px/1.45 var(--font);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 15px/1.45 var(--font);-webkit-font-smoothing:antialiased}
 img{max-width:100%}
-::selection{background:var(--sub);color:var(--on-sub)}
-input,textarea{caret-color:var(--sub)}
+::selection{background:var(--paper);color:var(--paper-ink)}
+input,textarea{caret-color:var(--paper)}
 *{scrollbar-width:thin;scrollbar-color:var(--control) transparent}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
@@ -55,183 +61,207 @@ button:disabled{cursor:default;opacity:.4}
 :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 input::placeholder,textarea::placeholder{color:var(--faint);opacity:1}
 
-.app{height:100%;min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;
+.app{height:100%;min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px;
   padding-top:max(10px,env(safe-area-inset-top,0px));padding-bottom:max(12px,env(safe-area-inset-bottom,0px));
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--ground)}
 
-/* шапка */
-.top{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;min-width:0;min-height:30px}
-.brand{margin:0;font-size:15px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
-.people{display:flex;flex-wrap:wrap;gap:4px 16px;flex:1 1 240px;min-width:0}
-.chip{display:inline-flex;align-items:center;gap:6px;min-width:0;max-width:100%;font-size:13px;color:var(--faint)}
-.chip .d{flex:none;width:6px;height:6px;border-radius:50%;background:var(--control)}
-.chip.on .d{background:var(--ok)}
-.chip .nm{min-width:2.5ch;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--sub);font-weight:500}
+/* шапка: название кинотеатра, фильм, кто в зале */
+.top{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;min-width:0;min-height:34px}
+.brandline{flex:0 1 auto;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 16px;min-width:0}
+.brand{flex:none;margin:0;font:800 28px/1 var(--cond);letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
+.film{min-width:0;max-width:48ch;overflow:hidden;color:var(--muted);font-size:15px;white-space:nowrap;text-overflow:ellipsis}
+.people{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 16px;flex:1 1 200px;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:100%;font-size:14px;color:var(--faint)}
+.chip .d{flex:none;width:7px;height:7px;border-radius:50%;background:var(--control)}
+.chip.on .d{background:var(--paper)}
+.chip .nm{min-width:2.5ch;max-width:16ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--paper);font-weight:600}
 .chip.me .nm{color:var(--ink)}
 .chip .st{flex:none;white-space:nowrap}
-.stats{font-size:12px;color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums}
+.stats{font-size:13px;color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums}
 .stats.warn{color:var(--warn)}
-.conn{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--faint);white-space:nowrap}
-.conn i{width:6px;height:6px;border-radius:50%;background:var(--control)}
-.conn.live i{background:var(--ok)}
+.conn{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--faint);white-space:nowrap}
+.conn i{width:7px;height:7px;border-radius:50%;background:var(--control)}
+.conn.live i{background:var(--paper)}
 .conn.bad i{background:var(--warn)}
 
 /* сетка */
-.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:10px;min-height:0}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:12px;min-height:0}
 .app.nochat .main{grid-template-columns:minmax(0,1fr)}
 
 /* экран */
-.stage{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0;border-radius:var(--r-panel);overflow:hidden;background:var(--surface)}
-.screen{position:relative;min-height:240px;overflow:hidden;background:var(--screen)}
+.stage{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:0}
+.screen{position:relative;min-height:240px;overflow:hidden;border-radius:var(--r);background:var(--screen)}
 .screen.ready video{cursor:pointer}
 .screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--screen);touch-action:manipulation}
-.screen video::cue{font-family:"Onest",-apple-system,sans-serif;line-height:1.3;color:#fff;background:rgba(0,0,0,.6)}
-.screen.drop::after{content:"";position:absolute;inset:12px;z-index:9;border:1px dashed var(--sub);border-radius:var(--r-panel);pointer-events:none}
-.subs{position:absolute;left:50%;bottom:7%;z-index:2;transform:translateX(-50%);max-width:86%;padding:2px 10px 4px;border-radius:4px;background:rgba(0,0,0,.62);color:#fff;font:500 clamp(15px,2.2vw,26px)/1.3 var(--font);text-align:center;white-space:pre-line;pointer-events:none}
+.screen video::cue{font-family:"Sofia Sans",-apple-system,sans-serif;line-height:1.3;color:#fff;background:rgba(0,0,0,.6)}
+.screen.drop::after{content:"";position:absolute;inset:12px;z-index:9;border:1px dashed var(--paper);border-radius:var(--r-panel);pointer-events:none}
+/* Субтитры фильма — внизу кадра, строки чата — вверху: они никогда не встречаются. */
+.subs{position:absolute;left:50%;bottom:7%;z-index:2;transform:translateX(-50%);max-width:86%;padding:2px 10px 4px;border-radius:3px;background:rgba(0,0,0,.62);color:#fff;font:500 clamp(16px,2.2vw,27px)/1.3 var(--font);text-align:center;white-space:pre-line;pointer-events:none}
 .chatsubs{position:absolute;top:6%;left:50%;z-index:4;transform:translateX(-50%);width:min(88%,760px);display:grid;justify-items:center;gap:4px;pointer-events:none}
-.cs{max-width:100%;color:var(--sub);font:500 clamp(16px,2vw,24px)/1.3 var(--font);text-align:center;overflow-wrap:anywhere;text-shadow:0 0 2px #000,0 1px 2px #000,0 0 10px rgba(0,0,0,.7);animation:csin .2s cubic-bezier(.16,1,.3,1)}
-.cs b{font-weight:600}
+.cs{max-width:100%;padding:2px 10px 3px;border-radius:3px;background:rgba(0,0,0,.72);color:#fff;font:500 clamp(15px,1.8vw,22px)/1.35 var(--font);text-align:center;overflow-wrap:anywhere;animation:csin .2s cubic-bezier(.16,1,.3,1)}
+.cs b{font-weight:600;color:var(--paper)}
 @keyframes csin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 .ov{position:absolute;inset:0;z-index:3;display:flex;overflow:auto;padding:28px 24px;background:var(--screen)}
 .ov.scrim{background:var(--scrim)}
 .ov.slot::before{content:"";position:absolute;inset:12px;border:1px dashed #3a3a3a;border-radius:var(--r-panel);pointer-events:none}
-.screen.drop .ov.slot::before{border-color:var(--sub)}
+.screen.drop .ov.slot::before{border-color:var(--paper)}
 .ov-in{position:relative;margin:auto;width:100%;max-width:440px;display:grid;justify-items:start;gap:12px}
-.ov h2{margin:0;font-size:24px;line-height:1.2;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
-.ov p{margin:0;max-width:52ch;color:var(--muted);font-size:15px;line-height:1.5;text-wrap:pretty}
-.ov .hint,.ov .note{font-size:13px;color:var(--faint)}
-.ov .status{margin-top:-4px;font-size:13px;font-weight:500;color:var(--muted)}
+.ov h2{margin:0;font:800 clamp(28px,3vw,34px)/1.05 var(--cond);letter-spacing:.005em;text-wrap:balance}
+.ov p{margin:0;max-width:52ch;color:var(--muted);font-size:16px;line-height:1.5;text-wrap:pretty}
+.ov .hint,.ov .note{font-size:14px;color:var(--faint)}
+.ov .status{margin-top:-4px;font-size:14px;font-weight:600;color:var(--muted)}
 .ov .status.warn{color:var(--warn)}
-.ov .warnbox{font-size:13px;color:var(--warn)}
+.ov .warnbox{font-size:14px;color:var(--warn)}
 .btnline{display:flex;flex-wrap:wrap;gap:8px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border:0;border-radius:var(--r);background:var(--ink);color:var(--on-ink);font-weight:600;font-size:14px;white-space:nowrap}
-.btn.sm{height:34px;padding:0 14px;font-size:13px}
-.btn2{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border:0;border-radius:var(--r);background:var(--raised);color:var(--ink);font-weight:500;font-size:13px;white-space:nowrap}
-.link{justify-self:start;border:0;background:none;padding:0;color:var(--muted);font-size:13px;text-align:left;text-decoration:underline;text-decoration-color:var(--control);text-underline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border:0;border-radius:var(--r);background:var(--paper);color:var(--paper-ink);font-weight:600;font-size:15px;white-space:nowrap}
+.btn.sm{height:36px;padding:0 14px;font-size:14px}
+.btn2{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border:0;border-radius:var(--r);background:var(--raised);color:var(--ink);font-weight:500;font-size:14px;white-space:nowrap}
+.link{justify-self:start;border:0;background:none;padding:0;color:var(--muted);font-size:14px;text-align:left;text-decoration:underline;text-decoration-color:var(--control);text-underline-offset:3px}
 input:focus-visible,textarea:focus-visible{outline:none;border-color:var(--muted)}
 .linkbox{display:flex;gap:6px;width:100%;min-width:0}
-.linkbox input{flex:1;min-width:0;height:34px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);color:var(--ink);font-size:13px}
-.field{display:grid;gap:6px;width:100%;font-size:13px;color:var(--faint)}
-.field input{height:40px;padding:0 12px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:16px}
+.linkbox input{flex:1;min-width:0;height:36px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);color:var(--ink);font-size:14px}
+.field{display:grid;gap:6px;width:100%;font-size:14px;color:var(--faint)}
+.field input{height:42px;padding:0 12px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:16px}
 .code{width:100%;min-height:96px;padding:10px 12px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);color:var(--ink);font:12px/1.4 var(--mono);resize:none;word-break:break-all}
 .techline,.ov p.techline,.room p.techline{margin:0;max-width:56ch;color:var(--faint);font:11.5px/1.45 var(--mono);overflow-wrap:anywhere}
-.err{margin:0;font-size:13px;color:var(--warn)}
-.filmline{max-width:100%;color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.filmline b{font-weight:500;color:var(--ink)}
+.err{margin:0;font-size:14px;color:var(--warn)}
 
-.statusline{display:flex;align-items:flex-start;gap:8px;max-width:100%;font-size:13px;color:var(--muted)}
-.statusline i{flex:none;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--faint);animation:pulse 1.6s ease-in-out infinite}
-.statusline.ok i{background:var(--ok);animation:none}
+.statusline{display:flex;align-items:flex-start;gap:8px;max-width:100%;font-size:14px;color:var(--muted)}
+.statusline i{flex:none;width:7px;height:7px;margin-top:7px;border-radius:50%;background:var(--faint);animation:pulse 1.6s ease-in-out infinite}
+.statusline.ok i{background:var(--paper);animation:none}
 .statusline.bad{color:var(--warn)}
 .statusline.bad i{background:var(--warn);animation:none}
 .statusline span{text-wrap:pretty}
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
 
-.progress{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--faint)}
+.progress{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:8px;font-size:15px;color:var(--faint)}
 .progress li{display:flex;align-items:center;gap:10px}
 .progress li::before{content:"";flex:none;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--control)}
 .progress li.now{color:var(--ink)}
 .progress li.now::before{border-color:var(--ink);border-top-color:transparent;animation:spin .9s linear infinite}
 .progress li.done{color:var(--muted)}
-.progress li.done::before{border:0;background:var(--ok) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.6 6.3l2.2 2.2 4.6-4.9' fill='none' stroke='%230f0f0f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/11px no-repeat}
+.progress li.done::before{border:0;background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.6 6.3l2.2 2.2 4.6-4.9' fill='none' stroke='%231c3326' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/11px no-repeat}
 .progress li.fail{color:var(--warn)}
-.progress li.fail::before{border:0;background:var(--warn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 3v3.6M6 8.7v.1' fill='none' stroke='%230f0f0f' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E") center/11px no-repeat}
+.progress li.fail::before{border:0;background:var(--warn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 3v3.6M6 8.7v.1' fill='none' stroke='%23111111' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E") center/11px no-repeat}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .float{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .fl{position:absolute;bottom:12%;font-size:34px;line-height:1;animation:rise 2.6s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes rise{0%{opacity:0;transform:translateY(0) scale(.7)}10%{opacity:1;transform:translateY(-10px) scale(1)}100%{opacity:0;transform:translateY(-220px) scale(1)}}
 .toasts{position:absolute;right:12px;bottom:12px;z-index:6;width:min(80%,420px);display:grid;justify-items:end;gap:6px;pointer-events:none}
-.toast{max-width:100%;padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--ink);font-size:13px;overflow-wrap:anywhere;animation:csin .2s cubic-bezier(.16,1,.3,1)}
-.wait{position:absolute;left:12px;bottom:12px;z-index:4;max-width:calc(100% - 24px);padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toast{max-width:100%;padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--ink);font-size:14px;overflow-wrap:anywhere;animation:csin .2s cubic-bezier(.16,1,.3,1)}
+.wait{position:absolute;left:12px;bottom:12px;z-index:4;max-width:calc(100% - 24px);padding:7px 12px;border-radius:var(--r);background:var(--shade);color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* пульт */
-.controls{display:grid;gap:2px;padding:4px 12px 8px;background:var(--surface)}
-.seekrow{display:flex;align-items:center;gap:12px;min-width:0}
-.tc{min-width:5ch;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
-#tcDur{color:var(--faint);text-align:right}
-.seekwrap{position:relative;flex:1;min-width:0;display:flex;align-items:center;height:30px}
+/* пульт: шкала с метками сообщений, под ней кнопки */
+.controls{display:grid;padding:4px 0 0}
+.seekwrap{position:relative;min-width:0;display:flex;align-items:center;height:30px}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;margin:0;background:transparent;cursor:pointer;touch-action:manipulation;--pct:0%}
 input[type=range]:disabled{cursor:default}
-input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--ink) 0 var(--pct),#3a3a3a var(--pct) 100%)}
-input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:#3a3a3a}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,var(--ink) 0 var(--pct),var(--line) var(--pct) 100%)}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--line)}
 input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--ink)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;margin-top:-4px;border:0;border-radius:50%;background:var(--ink)}
-input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radius:50%;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:4px;height:16px;margin-top:-6px;border:0;border-radius:2px;background:var(--ink)}
+input[type=range]::-moz-range-thumb{width:4px;height:16px;border:0;border-radius:2px;background:var(--ink)}
 input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
-.marks{position:absolute;left:6px;right:6px;top:3px;height:8px;pointer-events:none}
-.mark{position:absolute;top:0;width:2px;height:7px;margin-left:-1px;border-radius:1px;background:var(--faint)}
-.mark.them{background:var(--sub)}
-.btnrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}
+input[type=range]:disabled::-moz-range-thumb{background:var(--control)}
+.marks{position:absolute;left:2px;right:2px;top:2px;height:6px;pointer-events:none}
+.mark{position:absolute;top:0;width:6px;height:6px;margin-left:-3px;background:var(--faint)}
+.mark.them{background:var(--paper)}
+.btnrow{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2px 12px}
 .grp{position:relative;display:flex;align-items:center;gap:2px;min-width:0}
-.grp > .grp{flex:none}
-.ibtn{position:relative;display:inline-grid;place-items:center;min-width:36px;height:36px;padding:0 6px;border:0;border-radius:var(--r);background:transparent;color:var(--muted)}
-.ibtn svg{display:block;width:20px;height:20px}
-.ibtn[aria-pressed="true"]{color:var(--ink)}
-.ibtn.txt{font-size:12px;font-weight:600}
-.play{display:grid;place-items:center;width:40px;height:40px;margin:0 4px;border:0;border-radius:50%;background:var(--ink);color:var(--on-ink)}
-.play svg{display:block;width:20px;height:20px}
-.vol{width:84px}
-.badge{position:absolute;top:2px;right:1px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--sub);color:var(--on-sub);font:600 10px/16px var(--font);text-align:center}
+.grp > .grp,.btnrow .ibtn,.btnrow .play{flex:none}
+.ibtn{position:relative;display:inline-grid;place-items:center;min-width:40px;height:40px;padding:0 6px;border:0;border-radius:var(--r);background:transparent;color:var(--ink)}
+.ibtn svg{display:block;width:22px;height:22px}
+.ibtn svg [stroke]{stroke-width:1.75}
+.ibtn[aria-pressed="true"]{background:var(--raised)}
+.ibtn.txt{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.play{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:var(--r);background:transparent;color:var(--ink)}
+.play svg{display:block;width:24px;height:24px}
+.time{display:inline-flex;align-items:baseline;gap:5px;padding:0 10px;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.time .tc{min-width:4.6ch;color:var(--ink);font-weight:500}
+.time .sep,.time #tcDur{color:var(--faint);font-weight:400}
+input.vol{flex:none;width:84px;margin:0 6px 0 2px}
+.badge{position:absolute;top:2px;right:1px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--paper);color:var(--paper-ink);font:600 10px/16px var(--font);text-align:center}
 .tray{position:absolute;bottom:calc(100% + 8px);left:50%;z-index:8;display:flex;gap:2px;padding:4px;border-radius:var(--r-panel);background:var(--raised);box-shadow:0 10px 30px rgba(0,0,0,.5);transform:translateX(-50%)}
 .rx{width:40px;height:40px;border:0;border-radius:var(--r);background:transparent;font-size:22px;line-height:1}
 .app:not(.host) .host-only{display:none}
 
-/* чат */
-.chat{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto auto;min-width:0;min-height:0;border-radius:var(--r-panel);overflow:hidden;background:var(--surface)}
-.chat-head{grid-row:1;display:flex;align-items:center;gap:10px;min-width:0;padding:10px 12px;border-bottom:1px solid var(--line)}
-.chat > .room{grid-row:2}
-.chat > .log{grid-row:3}
-.chat > .cnote{grid-row:4}
-.chat > .composer{grid-row:5}
-.chat-head h2{margin:0;font-size:15px;font-weight:600}
-.typing{flex:1;min-width:0;overflow:hidden;color:var(--faint);font-size:12px;white-space:nowrap;text-overflow:ellipsis}
-.nick{display:flex;align-items:center;gap:6px;color:var(--faint);font-size:12px}
-.nick input{width:9em;height:28px;padding:0 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground);font-size:13px}
+/* панель справа: билет сеанса, приглашение, чат */
+.chat{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto auto;min-width:0;min-height:0;border-radius:var(--r-panel);overflow:hidden;background:var(--surface)}
+.chat-head{grid-row:1;display:flex;align-items:center;gap:10px;min-width:0;padding:10px 14px 8px}
+.chat > .ticket{grid-row:2}
+.chat > .room{grid-row:3}
+.chat > .log{grid-row:4}
+.chat > .cnote{grid-row:5}
+.chat > .composer{grid-row:6}
+.chat-head h2{margin:0;font-size:16px;font-weight:600}
+/* .chat-head .typing — строка «печатает…»; класс .typing у .app значит другое: вы пишете в чат */
+.chat-head .typing{flex:1;min-width:0;overflow:hidden;color:var(--faint);font-size:13px;white-space:nowrap;text-overflow:ellipsis}
+.nick{display:flex;align-items:center;gap:6px;color:var(--faint);font-size:13px}
+.nick input{width:9em;height:30px;padding:0 8px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground);font-size:14px}
 
-.room{display:grid;gap:10px;padding:14px 14px 16px;border-bottom:1px solid var(--line);background:#1c1c1c}
-.room h3{margin:0;font-size:15px;font-weight:600}
-.room p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
-.room .note{color:var(--faint);font-size:12px}
+/* Билет. Корешок «Контроль» отрывается, когда второй зритель входит в зал.
+   avoid-ai-design-ignore-file: SD4, I2 (SD4 — капс с разрядкой здесь шрифт печатного кинобилета: «Кинотеатр», «Сеанс», «Ряд», «Контроль», штамп,
+   в остальном интерфейсе его нет; I2 — реакции и есть эмодзи: это то, что зрители отправляют друг другу, а не иконки) */
+.ticket{display:flex;align-items:stretch;padding:2px 22px 14px 14px;color:var(--paper-ink)}
+.tk-main{flex:1;min-width:0;display:grid;align-content:start;gap:9px;padding:13px 14px 12px 16px;border-radius:4px 0 0 4px;border-right:2px dashed var(--perf);background:var(--paper)}
+.tk-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:700 14px/1.1 var(--cond);letter-spacing:.06em;text-transform:uppercase}
+.tk-no{letter-spacing:.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ticket .tk-title{margin:0;max-width:none;color:var(--paper-ink);font-size:18px;font-weight:600;line-height:1.2;overflow-wrap:anywhere;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tk-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0}
+.tk-fields div{min-width:0}
+.tk-fields dt{font:700 12px/1.2 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--paper-faint)}
+.tk-fields dd{margin:2px 0 0;font:800 28px/1 var(--cond);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ticket .tk-foot{margin:0;max-width:none;color:var(--paper-faint);font-size:13px;line-height:1.3;text-wrap:pretty}
+.tk-stub{flex:none;width:86px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:13px 8px 12px 12px;border-radius:0 4px 4px 0;background:var(--paper);transform-origin:top left;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.tk-stub.torn{border-left:2px dashed var(--perf);transform:translate(8px,5px) rotate(3deg)}
+.tk-ctl{font:700 14px/1.1 var(--cond);letter-spacing:.06em;text-transform:uppercase}
+.tk-seat{font-size:13px;line-height:1.25;color:var(--paper-faint)}
+.tk-stamp{margin:12px 0 2px -2px;padding:1px 6px;border:2px solid var(--paper-ink);border-radius:3px;font:800 17px/1.1 var(--cond);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transform:rotate(-12deg);opacity:.86}
+.tk-who{margin-top:auto;max-width:100%;font-size:13px;line-height:1.25;color:var(--paper-faint);overflow-wrap:anywhere}
+/* тот же билет на экране приглашения, только без полей */
+.ticket.mini{width:100%;padding:0}
+
+.room{display:grid;gap:10px;padding:14px 14px 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#1d1d1d}
+.room h3{margin:0;font:800 23px/1.1 var(--cond)}
+.room p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.room .note{color:var(--faint);font-size:13px}
 .room .row{display:flex;align-items:center;gap:8px;min-width:0}
-.room .row label{flex:none;color:var(--faint);font-size:12px}
-.room .row input{flex:1;min-width:0;height:32px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:14px}
+.room .row label{flex:none;color:var(--faint);font-size:13px}
+.room .row input{flex:1;min-width:0;height:34px;padding:0 10px;border:1px solid var(--control);border-radius:var(--r);background:var(--ground);font-size:15px}
 .room-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
 .manual{display:grid;gap:10px}
-.mlist{margin:0;padding:0 0 0 18px;display:grid;gap:12px;color:var(--muted);font-size:13px}
+.mlist{margin:0;padding:0 0 0 18px;display:grid;gap:12px;color:var(--muted);font-size:14px}
 .mlist li{padding-left:2px}
 .mlist li > div{margin-top:6px}
 
-.log{display:flex;flex-direction:column;gap:6px;overflow-y:auto;padding:12px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.msg{max-width:88%;align-self:flex-start;display:grid;justify-items:start;gap:2px;min-width:0}
-.msg.me{align-self:flex-end;justify-items:end}
-.msg.cont{margin-top:-2px}
-.meta{display:flex;align-items:baseline;gap:8px;color:var(--faint);font-size:12px}
-.meta .who{font-weight:600;color:var(--sub)}
+.log{display:flex;flex-direction:column;gap:12px;overflow-y:auto;padding:10px 14px 12px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.msg{display:grid;justify-items:start;gap:1px;min-width:0}
+.msg.cont{margin-top:-8px}
+.meta{display:flex;align-items:baseline;gap:8px;color:var(--faint);font-size:13px}
+.meta .who{font-size:14px;font-weight:600;color:var(--paper)}
 .msg.me .meta .who{color:var(--muted)}
 .msg.cont .who{display:none}
-.meta .tc{min-width:0;font-size:12px;color:var(--faint)}
-.body{max-width:100%;padding:6px 10px;border-radius:var(--r);background:var(--raised);font-size:15px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere}
-.msg.me .body{background:#2c2c2c}
-.sys{align-self:flex-start;color:var(--faint);font-size:12px}
-.chat-empty{display:grid;gap:4px;max-width:34ch;color:var(--faint);font-size:13px;line-height:1.45}
-.chat-empty-h{color:var(--muted);font-size:14px;font-weight:500}
-.chat-empty b{color:var(--sub);font-weight:500}
-.cnote{padding:8px 12px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
-.composer{display:flex;align-items:flex-end;gap:6px;min-width:0;padding:8px;border-top:1px solid var(--line)}
-.composer textarea{flex:1;min-width:0;min-height:36px;max-height:120px;padding:7px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground);font-size:15px;line-height:1.35;resize:none}
-.send{height:36px;padding:0 12px;border:0;border-radius:var(--r);background:var(--ink);color:var(--on-ink);font-size:13px;font-weight:600}
+.meta .tc{min-width:0;font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
+.body{max-width:100%;font-size:15px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere}
+.sys{color:var(--faint);font-size:13px}
+.chat-empty{display:grid;gap:4px;max-width:34ch;color:var(--faint);font-size:14px;line-height:1.45}
+.chat-empty-h{color:var(--muted);font-size:15px;font-weight:600}
+.cnote{padding:8px 14px;border-top:1px solid var(--line);color:var(--faint);font-size:13px}
+.composer{display:flex;align-items:flex-end;gap:8px;min-width:0;padding:10px 14px 14px}
+.composer textarea{flex:1;min-width:0;min-height:42px;max-height:120px;padding:10px 12px;border:1px solid transparent;border-radius:var(--r);background:var(--raised);font-size:15px;line-height:1.35;resize:none}
+.send{flex:none;display:grid;place-items:center;width:42px;height:42px;padding:0;border:0;border-radius:var(--r);background:var(--paper);color:var(--paper-ink)}
+.send svg{display:block;width:20px;height:20px}
 
 @media (hover:hover){
-  .btn:hover{background:#fff}
+  .btn:hover,.send:hover:not(:disabled){background:var(--paper-hi)}
   .btn2:hover{background:var(--hover)}
   .link:hover{color:var(--ink);text-decoration-color:var(--muted)}
-  .ibtn:hover:not(:disabled){background:var(--raised);color:var(--ink)}
-  .play:hover:not(:disabled){background:#fff}
+  .ibtn:hover:not(:disabled),.play:hover:not(:disabled){background:var(--raised)}
+  .ibtn[aria-pressed="true"]:hover:not(:disabled){background:var(--hover)}
   .rx:hover{background:var(--hover)}
-  .send:hover:not(:disabled){background:#fff}
 }
 .btn,.btn2,.ibtn,.play,.send,.rx{transition:background-color .15s ease-out,color .15s ease-out}
 
@@ -241,14 +271,14 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   .composer textarea,.nick input,.linkbox input,.room .row input{font-size:16px}
   .seekwrap,input[type=range]{height:36px}
   input[type=range]::-webkit-slider-runnable-track{height:5px}
-  input[type=range]::-webkit-slider-thumb{width:20px;height:20px;margin-top:-7.5px}
-  input[type=range]::-moz-range-thumb{width:20px;height:20px}
-  .marks{left:10px;right:10px;top:5px}
-  .ibtn{min-width:42px;height:42px}
+  input[type=range]::-webkit-slider-thumb{width:6px;height:22px;margin-top:-8.5px;border-radius:3px}
+  input[type=range]::-moz-range-thumb{width:6px;height:22px;border-radius:3px}
+  .marks{left:3px;right:3px;top:3px}
+  .ibtn{min-width:44px;height:44px}
   .rx{width:44px;height:44px}
 }
 
-/* узкое окно: чат под экраном */
+/* узкое окно: панель с билетом и чатом под экраном */
 @media (max-width:860px){
   html,body{height:auto}
   .app{height:auto;min-height:0}
@@ -256,17 +286,21 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   .screen{min-height:0;aspect-ratio:16/9;max-width:100%}
   .screen.has-ov{aspect-ratio:auto}
   .screen.has-ov .ov{position:relative;inset:auto;min-height:260px}
-  .chat{height:min(72vh,620px);min-height:380px}
+  .chat{height:min(82vh,760px);min-height:440px}
   .stats{display:none}
 }
 @media (max-width:600px){html,body{height:100%}}
 
-/* телефон вертикально: экран сверху, чат занимает остаток */
+/* телефон вертикально: экран сверху, под ним короткий билет и чат */
 .app.phone{display:flex;flex-direction:column;height:100%;min-height:0;gap:8px;overflow-y:auto;padding-top:max(8px,env(safe-area-inset-top,0px));padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
 .app.phone .top{flex-wrap:nowrap;gap:12px}
-.app.phone .people{flex:1 1 auto;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-.app.phone .people::-webkit-scrollbar{display:none}
-.app.phone .chip{flex:none;max-width:none}
+.app.phone .brandline{flex:none}
+.app.phone .brand{font-size:24px}
+.app.phone .subs{bottom:5%;max-width:92%;font-size:14px}
+.app.phone .cs{font-size:14px}
+.app.phone .film{display:none}
+.app.phone .people{display:none}
+.app.phone .conn{margin-left:auto}
 .app.phone .main{flex:1 0 auto;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(240px,1fr);gap:8px}
 .app.phone .stage{grid-template-rows:auto auto}
 .app.phone .screen{min-height:0;aspect-ratio:16/9}
@@ -275,25 +309,36 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
 .app.phone .chat{height:auto;min-height:0}
 .app.phone .log{min-height:160px}
 .app.phone #btnChat{display:none}
+.app.phone .chat > .ticket{padding:0 22px 10px 12px}
+.app.phone .chat > .ticket .tk-main{gap:5px;padding:10px 12px}
+.app.phone .chat > .ticket .tk-title{font-size:16px;-webkit-line-clamp:1}
+.app.phone .chat > .ticket .tk-fields,.app.phone .chat > .ticket .tk-foot,.app.phone .chat > .ticket .tk-seat,.app.phone .chat > .ticket .tk-who{display:none}
+.app.phone .chat > .ticket .tk-stub{width:76px;padding:10px 8px 10px 10px}
+.app.phone .chat > .ticket .tk-stamp{margin-top:6px;font-size:15px}
 
 /* кинорежим: телефон горизонтально или «на всё окно» */
 .app.cinema{position:fixed;inset:0;z-index:20;display:block;height:auto;min-height:0;padding:0;overflow:hidden;background:var(--screen)}
 .app.cinema .top{display:none}
 .app.cinema .main{position:absolute;inset:0;display:block}
-.app.cinema .stage{position:absolute;inset:0;display:block;border-radius:0;background:var(--screen)}
-.app.cinema .screen{position:absolute;inset:0;min-height:0;aspect-ratio:auto}
+.app.cinema .stage{position:absolute;inset:0;display:block;background:var(--screen)}
+.app.cinema .screen{position:absolute;inset:0;min-height:0;aspect-ratio:auto;border-radius:0}
 .app.cinema .screen.has-ov .ov{position:absolute;inset:0;padding:calc(20px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
 .app.cinema .controls{position:absolute;left:0;right:0;bottom:0;z-index:7;background:linear-gradient(to top,var(--shade),var(--shade-2) 60%,transparent);padding:34px max(16px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));transition:opacity .2s ease-out}
 .app.cinema .screen.has-ov + .controls{display:none}
 .app.cinema.idle .controls{opacity:0;pointer-events:none}
 .app.cinema.idle .screen{cursor:none}
 .app.cinema .chat{position:absolute;z-index:8;top:calc(10px + env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px));bottom:calc(112px + env(safe-area-inset-bottom,0px));width:min(360px,46vw);height:auto;min-height:0;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+.app.cinema .chat > .ticket{display:none}
 .app.cinema.idle .chat,.app.cinema.typing .chat{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 .app.cinema.typing .controls{display:none}
 .app.cinema .wait{top:calc(12px + env(safe-area-inset-top,0px));bottom:auto;left:max(12px,env(safe-area-inset-left,0px))}
-.app.cinema .toasts{bottom:calc(116px + env(safe-area-inset-bottom,0px));right:max(12px,env(safe-area-inset-right,0px))}
+.app.cinema .toasts{bottom:calc(124px + env(safe-area-inset-bottom,0px));right:max(12px,env(safe-area-inset-right,0px))}
 .app.cinema.idle .toasts{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
 .app.cinema .chatsubs{top:calc(6% + env(safe-area-inset-top,0px))}
+/* Субтитры фильма в кинорежиме: пока виден пульт — над ним, пока открыт чат — посередине оставшейся части кадра. */
+.app.cinema .subs{bottom:calc(124px + env(safe-area-inset-bottom,0px))}
+.app.cinema.idle .subs,.app.cinema.typing .subs{bottom:calc(7% + env(safe-area-inset-bottom,0px))}
+.app.cinema:not(.nochat) .subs{left:calc((100% - min(360px,46vw) - 20px) / 2);max-width:calc(100% - min(360px,46vw) - 48px)}
 .app.landcinema #btnFull{display:none}
 
 /* настоящий полный экран на компьютере */
@@ -309,14 +354,17 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   @keyframes fadeout{0%{opacity:1}100%{opacity:0}}
   .cs,.toast{animation:none}
   .statusline i,.progress li.now::before{animation:none}
-  .app.cinema .controls,.btn,.btn2,.ibtn,.play,.send,.rx{transition:none}
+  .app.cinema .controls,.btn,.btn2,.ibtn,.play,.send,.rx,.tk-stub{transition:none}
 }
 </style>
 </head>
 <body>
 <div class="app" id="app">
   <header class="top">
-    <h1 class="brand">Кино на двоих</h1>
+    <div class="brandline">
+      <h1 class="brand">Кино на двоих</h1>
+      <span class="film" id="topFilm" hidden></span>
+    </div>
     <div class="people" id="people" aria-label="Кто в зале"></div>
     <div class="stats" id="stats" hidden></div>
     <div class="conn" id="conn" hidden><i></i><span id="connText"></span></div>
@@ -347,7 +395,17 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
         <div class="ov" id="ovJoin" hidden>
           <div class="ov-in">
             <h2 id="joinTitle">Вас зовут смотреть фильм</h2>
-            <div class="filmline" id="joinFilm" hidden></div>
+            <div class="ticket mini" id="joinTicket" role="group" aria-label="Билет" hidden>
+              <div class="tk-main">
+                <div class="tk-head"><span>Кинотеатр «На двоих»</span><span class="tk-no" id="jtNo"></span></div>
+                <p class="tk-title" id="joinFilm"></p>
+                <p class="tk-foot" id="jtFoot"></p>
+              </div>
+              <div class="tk-stub">
+                <span class="tk-ctl">Контроль</span>
+                <span class="tk-who">оторвём на входе</span>
+              </div>
+            </div>
             <label class="field" for="joinName"><span>Как вас зовут</span><input id="joinName" maxlength="32" autocomplete="nickname" placeholder="Имя"></label>
             <button class="btn" id="btnJoin" type="button">Войти в зал</button>
             <p class="hint">Скачивать фильм не нужно, он придёт от того, кто вас позвал.</p>
@@ -397,24 +455,21 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
       </div>
 
       <div class="controls">
-        <div class="seekrow">
-          <span class="tc" id="tcNow">00:00</span>
-          <div class="seekwrap">
-            <input type="range" id="seek" min="0" max="0" step="any" value="0" aria-label="Перемотка" disabled>
-            <div class="marks" id="marks" aria-hidden="true"></div>
-          </div>
-          <span class="tc" id="tcDur">--:--</span>
+        <div class="seekwrap">
+          <input type="range" id="seek" min="0" max="0" step="any" value="0" aria-label="Перемотка" disabled>
+          <div class="marks" id="marks" aria-hidden="true"></div>
         </div>
         <div class="btnrow">
           <div class="grp">
-            <button class="ibtn" id="btnBack" type="button" aria-label="Назад на 10 секунд" title="Назад на 10 секунд (←)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.6 8.4A8 8 0 1 1 4 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5.2 3.8v4.8h4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="12.6" y="16.2" text-anchor="middle" font-size="7.4" font-weight="600" font-family="Onest,-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
             <button class="play" id="btnPlay" type="button" aria-label="Смотреть" title="Плей и пауза (пробел)" disabled></button>
-            <button class="ibtn" id="btnFwd" type="button" aria-label="Вперёд на 10 секунд" title="Вперёд на 10 секунд (→)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.4 8.4A8 8 0 1 0 20 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.8 3.8v4.8H14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="11.4" y="16.2" text-anchor="middle" font-size="7.4" font-weight="600" font-family="Onest,-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
+            <button class="ibtn" id="btnBack" type="button" aria-label="Назад на 10 секунд" title="Назад на 10 секунд (←)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 8.5-8.5 9.2 9.2 0 0 0-6.4 2.6L3.5 8.2" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 3.5v4.7h4.7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><text x="12" y="15.3" text-anchor="middle" font-size="7.5" font-weight="600" font-family="'Sofia Sans',-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
+            <button class="ibtn" id="btnFwd" type="button" aria-label="Вперёд на 10 секунд" title="Вперёд на 10 секунд (→)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-8.5-8.5c2.4 0 4.7.95 6.4 2.6l2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.5 3.5v4.7h-4.7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><text x="12" y="15.3" text-anchor="middle" font-size="7.5" font-weight="600" font-family="'Sofia Sans',-apple-system,sans-serif" fill="currentColor">10</text></svg></button>
+            <span class="time"><span class="tc" id="tcNow">00:00</span><span class="sep" aria-hidden="true">/</span><span class="tc" id="tcDur">--:--</span></span>
           </div>
           <div class="grp">
             <div class="grp">
-              <button class="ibtn" id="btnReact" type="button" aria-label="Реакции" aria-expanded="false" title="Реакции" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 13.8c.8 1.3 2 2 3.4 2s2.6-.7 3.4-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9.3" cy="9.9" r="1.1" fill="currentColor"/><circle cx="14.7" cy="9.9" r="1.1" fill="currentColor"/></svg></button>
-              <!-- avoid-ai-design-ignore-file: I2 (реакции и есть эмодзи: это то, что зрители отправляют друг другу, а не иконки) -->
+              <button class="ibtn" id="btnReact" type="button" aria-label="Реакции" aria-expanded="false" title="Реакции" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8.6 14.1c.8 1.3 2 2 3.4 2s2.6-.7 3.4-2" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><circle cx="9.3" cy="9.9" r="1.1" fill="currentColor"/><circle cx="14.7" cy="9.9" r="1.1" fill="currentColor"/></svg></button>
+              <!-- реакции и есть эмодзи: это то, что зрители отправляют друг другу, а не иконки -->
               <div class="tray" id="reacts" role="group" aria-label="Реакции" hidden>
                 <button class="rx" type="button" data-e="❤️" aria-label="Сердце" disabled>❤️</button>
                 <button class="rx" type="button" data-e="😂" aria-label="Смех" disabled>😂</button>
@@ -425,12 +480,12 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
             </div>
             <button class="ibtn" id="btnMute" type="button" aria-label="Выключить звук" title="Звук (M)"></button>
             <input type="range" class="vol" id="vol" min="0" max="1" step="0.05" value="1" aria-label="Громкость">
-            <button class="ibtn txt host-only" id="btnQuality" type="button" aria-label="Качество для второго зрителя" title="Качество для второго зрителя">HD</button>
-            <button class="ibtn host-only" id="btnSubs" type="button" aria-label="Субтитры" aria-pressed="false" title="Субтитры: загрузить .srt, потом включать и выключать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.8 14.6h5M13.8 14.6h3.4M6.8 11.2h2.6M11.6 11.2h5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-            <button class="ibtn host-only" id="btnInvite" type="button" aria-label="Ссылка для второго зрителя" title="Ссылка для второго зрителя"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 13.7a3.6 3.6 0 0 0 5.1 0l3.1-3.1a3.6 3.6 0 0 0-5.1-5.1l-1.2 1.2M13.7 10.3a3.6 3.6 0 0 0-5.1 0l-3.1 3.1a3.6 3.6 0 0 0 5.1 5.1l1.2-1.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-            <button class="ibtn host-only" id="btnFile" type="button" aria-label="Сменить фильм" title="Сменить фильм"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5A1.5 1.5 0 0 1 5 6h4l2 2h8a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 17z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
-            <button class="ibtn" id="btnChat" type="button" aria-label="Чат" aria-pressed="true" title="Показать или скрыть чат (C)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5h-9l-4.5 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" id="unread" hidden></span></button>
-            <button class="ibtn" id="btnFull" type="button" aria-label="Во весь экран" aria-pressed="false" title="Во весь экран (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4.5h4.5M20 9V4.5h-4.5M4 15v4.5h4.5M20 15v4.5h-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="ibtn txt host-only" id="btnQuality" type="button" aria-label="Качество для второго зрителя" title="Качество для второго зрителя">1080p</button>
+            <button class="ibtn host-only" id="btnSubs" type="button" aria-label="Субтитры" aria-pressed="false" title="Субтитры: загрузить .srt, потом включать и выключать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M7.5 11h9M7.5 14.5h5.5M15.5 14.5h1" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+            <button class="ibtn host-only" id="btnInvite" type="button" aria-label="Билет для второго зрителя" title="Билет для второго зрителя: ссылка на зал"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7h17v3a2 2 0 0 0 0 4v3h-17v-3a2 2 0 0 0 0-4z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M14.5 8.5v1.2M14.5 11.4v1.2M14.5 14.3v1.2" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+            <button class="ibtn host-only" id="btnFile" type="button" aria-label="Сменить фильм" title="Сменить фильм"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4" width="15" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 4v16M15.5 4v16M4.5 8.5h4M4.5 15.5h4M15.5 8.5h4M15.5 15.5h4" fill="none" stroke="currentColor" stroke-width="1.75"/></svg></button>
+            <button class="ibtn" id="btnChat" type="button" aria-label="Чат" aria-pressed="true" title="Показать или скрыть чат (C)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 6h15v10h-8.5l-4 3.5V16H4.5z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg><span class="badge" id="unread" hidden></span></button>
+            <button class="ibtn" id="btnFull" type="button" aria-label="Во весь экран" aria-pressed="false" title="Во весь экран (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
         </div>
       </div>
@@ -443,9 +498,28 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
         <label class="nick" for="nick">Вы <input id="nick" maxlength="32" placeholder="ваше имя" autocomplete="nickname"></label>
       </div>
 
-      <section class="room" id="ovInvite" aria-label="Ссылка для второго зрителя" hidden>
-        <h3>Позовите второго зрителя</h3>
-        <p>Отправьте ему эту ссылку, например в Telegram. Когда он её откроет, фильм появится у него.</p>
+      <div class="ticket" id="ticket" role="group" aria-label="Билет на сеанс" hidden>
+        <div class="tk-main">
+          <div class="tk-head"><span>Кинотеатр «На двоих»</span><span class="tk-no" id="tkNo"></span></div>
+          <p class="tk-title" id="tkFilm"></p>
+          <dl class="tk-fields">
+            <div><dt>Сеанс</dt><dd id="tkTime"></dd></div>
+            <div><dt>Ряд</dt><dd>1</dd></div>
+            <div><dt id="tkSeatsLabel">Место</dt><dd id="tkSeats"></dd></div>
+          </dl>
+          <p class="tk-foot" id="tkFoot"></p>
+        </div>
+        <div class="tk-stub" id="tkStub">
+          <span class="tk-ctl">Контроль</span>
+          <span class="tk-seat" id="tkSeat"></span>
+          <span class="tk-stamp" id="tkStamp" hidden>В зале</span>
+          <span class="tk-who" id="tkWho"></span>
+        </div>
+      </div>
+
+      <section class="room" id="ovInvite" aria-label="Билет для второго зрителя" hidden>
+        <h3>Отдайте второй билет</h3>
+        <p>Пришлите эту ссылку тому, с кем смотрите, например в Telegram. Когда он её откроет, фильм появится у него.</p>
         <div class="linkbox"><input id="inviteLink" readonly aria-label="Ссылка на зал"><button class="btn sm" id="btnCopyLink" type="button">Скопировать</button></div>
         <button class="btn2" id="btnShareLink" type="button" hidden>Поделиться…</button>
         <div class="row"><label for="hostName">Ваше имя</label><input id="hostName" maxlength="32" autocomplete="nickname" placeholder="его увидит второй"></div>
@@ -471,7 +545,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
       <div class="cnote" id="chatNote" hidden></div>
       <form class="composer" id="composer">
         <textarea id="msg" rows="1" maxlength="600" placeholder="Написать…" enterkeyhint="send" aria-label="Сообщение" disabled></textarea>
-        <button class="send" id="btnSend" type="submit" disabled>Отправить</button>
+        <button class="send" id="btnSend" type="submit" aria-label="Отправить" title="Отправить (Enter)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </form>
     </aside>
   </main>
@@ -499,7 +573,9 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     'seek', 'tcNow', 'tcDur', 'btnBack', 'btnPlay', 'btnFwd', 'reacts', 'btnMute', 'vol', 'btnQuality', 'btnSubs',
     'btnInvite', 'btnFile', 'btnChat', 'unread', 'btnFull',
     'chat', 'typing', 'nick', 'log', 'chatNote', 'composer', 'msg', 'btnSend', 'fileIn', 'subsIn',
-    'marks', 'chatSubs', 'btnReact'
+    'marks', 'chatSubs', 'btnReact', 'topFilm',
+    'ticket', 'tkNo', 'tkFilm', 'tkTime', 'tkSeatsLabel', 'tkSeats', 'tkFoot', 'tkStub', 'tkSeat', 'tkStamp', 'tkWho',
+    'joinTicket', 'jtNo', 'jtFoot'
   ].forEach((id) => { E[id] = $(id); });
 
   const QS = new URLSearchParams(location.search);
@@ -530,9 +606,9 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   const HAS_RTC = typeof window.RTCPeerConnection === 'function';
   const CAN_CAPTURE = typeof HTMLMediaElement !== 'undefined' && typeof HTMLMediaElement.prototype.captureStream === 'function';
   const QUALITY = {
-    high: { bps: 8000000, h: 1080, label: 'высокое', btn: 'HD' },
-    mid: { bps: 4000000, h: 720, label: 'среднее', btn: '720' },
-    low: { bps: 1500000, h: 480, label: 'экономное', btn: '480' }
+    high: { bps: 8000000, h: 1080, label: 'высокое', btn: '1080p' },
+    mid: { bps: 4000000, h: 720, label: 'среднее', btn: '720p' },
+    low: { bps: 1500000, h: 480, label: 'экономное', btn: '480p' }
   };
   const QORDER = ['high', 'mid', 'low'];
   const REACTS = ['❤️', '😂', '😮', '😭', '🔥'];
@@ -614,7 +690,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     unread: 0, typing: false, typingTimer: 0, lastReact: 0, blocked: false, scrubbing: false,
     subs: null, audioWarned: false, audioTimer: 0, wake: null, tick: 0, ptr: 'mouse',
     hiddenAt: 0, quietUntil: 0, statsText: '', statsWarn: false, prevBytes: null, loop: 0,
-    ice: null, diag: null, failCount: 0, attemptFailedFor: null, retryT: 0, viaRelay: false, hostDiag: null
+    ice: null, diag: null, failCount: 0, attemptFailedFor: null, retryT: 0, viaRelay: false, hostDiag: null,
+    subsOn: false, inAt: 0, hostAt: 0
   };
   const isHost = () => S.role === 'host';
   const isGuest = () => S.role === 'guest';
@@ -982,6 +1059,8 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
       try { g.dc.send(s); } catch (e) { /* ignore */ }
     }
   }
+  // at — когда открылся зал: из него на билете второго зрителя печатается время сеанса.
+  function hostHelloMsg() { return { t: 'hello', name: myName(), key: S.key, file: fileInfo(), q: S.quality, at: S.roomAt }; }
   function hostStateMsg(extra) {
     const o = { t: 'state', p: !V.paused && !V.ended, ct: V.currentTime || 0, d: Number.isFinite(V.duration) ? V.duration : 0, w: S.hostWaiting };
     return extra ? Object.assign(o, extra) : o;
@@ -1105,10 +1184,11 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     pc.addEventListener('iceconnectionstatechange', onState);
     dc.onopen = () => {
       g.open = true;
-      sendTo(g, { t: 'hello', name: myName(), key: S.key, file: fileInfo(), q: S.quality });
+      if (!g.inAt) g.inAt = Date.now();
+      sendTo(g, hostHelloMsg());
       sendTo(g, hostStateMsg());
       sendHistory(g);
-      if (S.subs && S.subs.mode === 'showing' && S.subLast) sendTo(g, { t: 'sub', x: S.subLast });
+      if (S.subs && S.subsOn && S.subLast) sendTo(g, { t: 'sub', x: S.subLast });
       bcastPeers();
       if (S.inviteOpen) S.inviteOpen = false;
       if (S.manual && S.manual.gid === g.id) S.manual = null;
@@ -1364,7 +1444,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     if (!S.secret) S.secret = b64.enc(randBytes(16));
     try { history.replaceState(null, '', location.pathname + location.search + '#host=' + S.secret); } catch (e) { /* ignore */ }
     if (!changed) loadChat();
-    if (S.subs) { S.subs.mode = 'disabled'; S.subs = null; S.subLast = ''; E.btnSubs.setAttribute('aria-pressed', 'false'); bcast({ t: 'sub', x: '' }); }
+    if (S.subs) { S.subs.mode = 'disabled'; S.subs = null; S.subLast = ''; S.subsOn = false; S.subText = ''; E.btnSubs.setAttribute('aria-pressed', 'false'); bcast({ t: 'sub', x: '' }); }
     S.file = { name: clean(file.name, 80) || 'Без названия', d: 0 };
     S.url = URL.createObjectURL(file);
     S.quietUntil = Date.now() + 1000;
@@ -1415,16 +1495,21 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
       if (S.subs) S.subs.mode = 'disabled';
       const tt = V.addTextTrack('subtitles', clean(file.name, 60), 'ru');
       for (const c of cues) { try { tt.addCue(new VTTCue(c[0], c[1], c[2])); } catch (e) { /* пропускаем битую реплику */ } }
-      tt.mode = 'showing';
+      // Дорожка скрыта: реплики рисует сама страница (#subs), как у второго зрителя,
+      // чтобы в кинорежиме поднимать их над пультом и отодвигать от чата.
+      tt.mode = 'hidden';
       tt.addEventListener('cuechange', () => {
         if (S.subs !== tt) return;
         const ac = tt.activeCues;
         let x = '';
         if (ac) for (let i = 0; i < ac.length; i++) x += (x ? '\n' : '') + String(ac[i].text || '').replace(/<[^>]+>/g, '');
         S.subLast = x;
-        if (tt.mode === 'showing') bcast({ t: 'sub', x: x.slice(0, 400) });
+        if (S.subsOn) { S.subText = x.slice(0, 400); renderSubs(); bcast({ t: 'sub', x: x.slice(0, 400) }); }
       });
       S.subs = tt;
+      S.subsOn = true;
+      S.subText = '';
+      renderSubs();
       E.btnSubs.setAttribute('aria-pressed', 'true');
       toast('Субтитры подключены — второй тоже их увидит');
     } catch (e) {
@@ -1625,6 +1710,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     dc.onopen = () => {
       if (S.dc !== dc) return;
       S.dcOpen = true;
+      if (!S.inAt) S.inAt = Date.now();
       sendHost({ t: 'hello', name: myName(), key: S.key });
       render();
     };
@@ -1644,6 +1730,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
       case 'hello':
         S.hostName = clean(m.name, 32) || S.hostName;
         S.hostFile = sanitizeFile(m.file) || S.hostFile;
+        if (Number.isFinite(m.at) && m.at > 0) S.hostAt = m.at;
         try {
           if ('mediaSession' in navigator && window.MediaMetadata && S.hostFile) navigator.mediaSession.metadata = new MediaMetadata({ title: S.hostFile.name, artist: 'Кино на двоих' });
         } catch (e) { /* ignore */ }
@@ -1816,8 +1903,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     if (!items.length) {
       const empty = el('div', 'chat-empty');
       const tip = el('div', '');
-      tip.append(document.createTextNode('У каждого сообщения будет время фильма, а на шкале появится отметка. Если чат скрыт, сообщения второго зрителя покажутся поверх кадра '),
-        el('b', '', 'жёлтым'), document.createTextNode(', как субтитры.'));
+      tip.textContent = 'У каждого сообщения будет время фильма, а на шкале появится отметка. Если чат скрыт, сообщения второго зрителя появятся вверху кадра и не заслонят субтитры.';
       empty.append(el('div', 'chat-empty-h', 'Сообщений пока нет'), tip);
       log.append(empty);
       renderMarks();
@@ -1888,7 +1974,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     S.name = clean(n, 32).trim();
     LS.set('kn2-name', S.name);
     for (const inp of [E.nick, E.hostName, E.joinName]) if (inp !== document.activeElement) inp.value = S.name;
-    if (isHost()) { bcastPeers(); bcast({ t: 'hello', name: myName(), key: S.key, file: fileInfo(), q: S.quality }); }
+    if (isHost()) { bcastPeers(); bcast(hostHelloMsg()); }
     else if (isGuest() && S.dcOpen) sendHost({ t: 'hello', name: myName(), key: S.key });
     render();
   }
@@ -2051,13 +2137,77 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   }
   function renderJoin() {
     E.joinTitle.textContent = S.hostName ? S.hostName + ' зовёт смотреть фильм' : 'Вас зовут смотреть фильм';
-    E.joinFilm.hidden = !S.hostFile;
+    E.joinTicket.hidden = !S.hostFile;
     if (S.hostFile) {
-      E.joinFilm.textContent = '';
-      const b = el('b', '', '«' + S.hostFile.name + '»');
-      E.joinFilm.append(b);
-      if (S.hostFile.d) E.joinFilm.append(document.createTextNode(', ' + fmt(S.hostFile.d, S.hostFile.d >= 3600)));
+      E.joinFilm.textContent = filmLabel(S.hostFile, ', ');
+      E.joinFilm.title = S.hostFile.name;
+      E.jtNo.textContent = ticketNo();
+      E.jtFoot.textContent = 'Ряд 1' + (S.hostFile.d ? ' · ' + fmtLen(S.hostFile.d) : '');
     }
+  }
+
+  /* Билет сеанса. Номер выводится из ключа зала, поэтому у обоих зрителей он одинаковый.
+     Ведущий сидит на 7-м месте, остальные — дальше по ряду в порядке входа. */
+  const SEAT0 = 7;
+  function prettyFilm(name) {
+    let s = String(name || '').replace(/\.[A-Za-z0-9]{2,4}$/, '').replace(/[._]+/g, ' ').replace(/\s+/g, ' ').trim();
+    let year = '';
+    const re = /(?:^|[\s(\[])((?:19|20)\d{2})(?=$|[\s)\]])/g;
+    let m;
+    while ((m = re.exec(s))) { if (m.index > 0) { year = m[1]; s = s.slice(0, m.index); break; } }
+    s = s.replace(/\s(?:\d{3,4}p|4k|uhd|hdr|(?:bd|hd|dvd|web|tv|hdtv|cam)[ -]?rip|blu[ -]?ray|web[ -]?dl|x26[45]|h ?26[45]|hevc|avc|aac|ac3|dts|remux|proper)\b.*$/i, '');
+    s = s.replace(/[\s\-–—(\[]+$/, '').trim();
+    return { title: s || String(name || '').trim() || 'Фильм', year };
+  }
+  function filmLabel(f, sep) { const p = prettyFilm(f.name); return p.title + (p.year ? sep + p.year : ''); }
+  const fmtLen = (d) => { const m = Math.max(1, Math.round(d / 60)); return m >= 60 ? Math.floor(m / 60) + ' ч ' + p2(m % 60) + ' мин' : m + ' мин'; };
+  const hhmm = (ts) => { const d = new Date(ts); return p2(d.getHours()) + ':' + p2(d.getMinutes()); };
+  function ticketNo() {
+    let h = 2166136261;
+    const s = S.secret || '';
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return '№ ' + String(h % 1000000).padStart(6, '0');
+  }
+  const seatsText = (n) => (n <= 1 ? String(SEAT0) : (n === 2 ? SEAT0 + ', ' + (SEAT0 + 1) : SEAT0 + '–' + (SEAT0 + n - 1)));
+  function renderTicket() {
+    let film = null, at = 0, n = 1, foot = '', torn = false, seat = '', who = '';
+    if (isHost() && S.file && !S.error) {
+      const gs = openGuests();
+      film = S.file; at = S.roomAt; n = 1 + gs.length;
+      foot = 'Действителен, пока вы не закроете эту вкладку';
+      seat = 'ряд 1, м. ' + (n > 2 ? (SEAT0 + 1) + '–' + (SEAT0 + n - 1) : SEAT0 + 1);
+      torn = gs.length > 0;
+      who = !gs.length ? 'ждём второго' : (gs[0].name || 'Гость') + (gs.length > 1 ? ' и ещё ' + (gs.length - 1) : ', ' + hhmm(gs[0].inAt || Date.now()));
+    } else if (isGuest() && S.dcOpen) {
+      const i = S.peers.findIndex((p) => p.k === S.key);
+      film = S.hostFile; at = S.hostAt || S.joinAt; n = Math.max(2, S.peers.length);
+      foot = 'Действителен, пока ' + (S.hostName || 'ведущий') + ' не закроет вкладку';
+      seat = 'ряд 1, м. ' + (SEAT0 + (i > 0 ? i : 1));
+      torn = true;
+      who = 'Вы, ' + hhmm(S.inAt || Date.now());
+    } else {
+      E.ticket.hidden = true;
+      return;
+    }
+    E.ticket.hidden = false;
+    E.tkNo.textContent = ticketNo();
+    E.tkFilm.textContent = film ? filmLabel(film, ', ') : 'Фильм';
+    E.tkFilm.title = film ? film.name : '';
+    E.tkTime.textContent = at ? hhmm(at) : '--:--';
+    E.tkSeatsLabel.textContent = n > 1 ? 'Места' : 'Место';
+    E.tkSeats.textContent = seatsText(n);
+    E.tkFoot.textContent = foot;
+    E.tkSeat.textContent = seat;
+    E.tkStub.classList.toggle('torn', torn);
+    E.tkStamp.hidden = !torn;
+    E.tkWho.textContent = who;
+  }
+  function renderTopFilm() {
+    const f = isHost() ? (S.error ? null : S.file) : (isGuest() ? S.hostFile : null);
+    E.topFilm.hidden = !f;
+    if (!f) return;
+    const txt = filmLabel(f, ' · ');
+    if (E.topFilm.textContent !== txt) { E.topFilm.textContent = txt; E.topFilm.title = f.name; }
   }
   function renderConnect() {
     const now = Date.now(), since = now - (S.joinAt || now);
@@ -2184,7 +2334,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     E.vol.style.setProperty('--pct', (muted ? 0 : Number(E.vol.value) * 100) + '%');
   }
   function renderSubs() {
-    const show = isGuest() && !!S.subText && S.gState === 'connected';
+    const show = !!S.subText && (isGuest() ? S.gState === 'connected' : (isHost() && S.subsOn && !!S.file));
     E.subs.hidden = !show;
     if (show) E.subs.textContent = S.subText;
   }
@@ -2233,9 +2383,9 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     }
     E.wait.hidden = !wait;
     E.wait.textContent = wait;
-    renderPeople(); renderConn(); renderChatState(); renderSubs(); renderVol(); renderMarks();
+    renderPeople(); renderConn(); renderChatState(); renderSubs(); renderVol(); renderMarks(); renderTicket(); renderTopFilm();
   }
-  // Сообщения чата отмечены на шкале фильма: свои серым, чужие жёлтым.
+  // Сообщения чата отмечены на шкале фильма: свои серым, чужие цветом билета.
   let marksSig = '';
   function renderMarks() {
     const d = curDur();
@@ -2420,8 +2570,10 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
   });
   E.btnSubs.addEventListener('click', () => {
     if (!S.subs) { E.subsIn.click(); return; }
-    const on = S.subs.mode !== 'showing';
-    S.subs.mode = on ? 'showing' : 'hidden';
+    const on = !S.subsOn;
+    S.subsOn = on;
+    S.subText = on ? (S.subLast || '').slice(0, 400) : '';
+    renderSubs();
     E.btnSubs.setAttribute('aria-pressed', String(on));
     bcast({ t: 'sub', x: on ? (S.subLast || '') : '' });
     toast(on ? 'Субтитры включены' : 'Субтитры выключены · другой .srt можно перетащить на экран');
@@ -2478,7 +2630,7 @@ input[type=range]:disabled::-webkit-slider-thumb{background:var(--control)}
     if (V.videoWidth === 0 && V.videoHeight === 0) toast('Звук есть, а картинку браузер не показывает: похоже, видео в кодеке, который он не знает. Нужна версия в H.264.', 7000);
     hostVideoCapture();
     applyQualityAll();
-    bcast({ t: 'hello', name: myName(), key: S.key, file: fileInfo(), q: S.quality });
+    bcast(hostHelloMsg());
     bcast(hostStateMsg());
     render(); tickUI();
   });
